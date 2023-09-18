@@ -18,7 +18,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
     
     public MenuPrincipal() {
         initComponents();
-        this.setLocationRelativeTo(null);
+        this.setLocationRelativeTo(null);        
     }
 
     
@@ -70,6 +70,11 @@ public class MenuPrincipal extends javax.swing.JFrame {
         MenuMateria.setText("Materia");
 
         MenuFormularioMateria.setText("Formulario de Materia");
+        MenuFormularioMateria.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                MenuFormularioMateriaActionPerformed(evt);
+            }
+        });
         MenuMateria.add(MenuFormularioMateria);
 
         jMenuBar1.add(MenuMateria);
@@ -77,6 +82,11 @@ public class MenuPrincipal extends javax.swing.JFrame {
         MenuAdministracion.setText("Administracion");
 
         MenuManejodeInscripcion.setText("Manejo de Inscripciones");
+        MenuManejodeInscripcion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                MenuManejodeInscripcionActionPerformed(evt);
+            }
+        });
         MenuAdministracion.add(MenuManejodeInscripcion);
 
         MenuManipulacionNotas.setText("Manipulacion de Notas");
@@ -92,6 +102,11 @@ public class MenuPrincipal extends javax.swing.JFrame {
         jMenuBar1.add(MenuConsultas);
 
         MenuSalir.setText("Salir");
+        MenuSalir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                MenuSalirActionPerformed(evt);
+            }
+        });
         jMenuBar1.add(MenuSalir);
 
         setJMenuBar(jMenuBar1);
@@ -118,6 +133,28 @@ public class MenuPrincipal extends javax.swing.JFrame {
         escritorio.add(aif);
         escritorio.moveToFront(aif);
     }//GEN-LAST:event_MenuItemFormularioAlumActionPerformed
+
+    private void MenuFormularioMateriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MenuFormularioMateriaActionPerformed
+        escritorio.removeAll();
+        escritorio.repaint();
+        MateriasIF mIF = new MateriasIF();
+        mIF.setVisible(true);
+        escritorio.add(mIF);
+        escritorio.moveToFront(mIF);
+    }//GEN-LAST:event_MenuFormularioMateriaActionPerformed
+
+    private void MenuSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MenuSalirActionPerformed
+        
+    }//GEN-LAST:event_MenuSalirActionPerformed
+
+    private void MenuManejodeInscripcionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MenuManejodeInscripcionActionPerformed
+        escritorio.removeAll();
+        escritorio.repaint();
+        FormularioDeInscripcionIF fdi = new FormularioDeInscripcionIF();
+        fdi.setVisible(true);
+        escritorio.add(fdi);
+        escritorio.moveToFront(fdi);
+    }//GEN-LAST:event_MenuManejodeInscripcionActionPerformed
 
     /**
      * @param args the command line arguments
