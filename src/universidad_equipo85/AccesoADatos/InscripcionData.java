@@ -49,7 +49,7 @@ public class InscripcionData {
             ResultSet rs = ps.getGeneratedKeys();
             if (rs.next()) {
 
-                insc.setIdInscripcion(rs.getInt("idInscripcion"));
+                insc.setIdInscripcion(rs.getInt(1));
                 mensaje("Inscripcion guardada con exito");
             }
             ps.close();

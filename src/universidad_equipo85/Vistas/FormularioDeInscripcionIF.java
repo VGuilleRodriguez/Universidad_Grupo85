@@ -14,6 +14,7 @@ import javax.swing.table.DefaultTableModel;
 import universidad_equipo85.AccesoADatos.AlumnoData;
 import universidad_equipo85.AccesoADatos.InscripcionData;
 import universidad_equipo85.Entidades.Alumno;
+import universidad_equipo85.Entidades.Inscripcion;
 import universidad_equipo85.Entidades.Materia;
 
 /**
@@ -89,6 +90,11 @@ public class FormularioDeInscripcionIF extends javax.swing.JInternalFrame {
         jScrollPane1.setViewportView(jtTablaInscripcion);
 
         jbInscribir.setText("Inscribir");
+        jbInscribir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbInscribirActionPerformed(evt);
+            }
+        });
 
         jbAnularInscripcion.setText("Anular Inscripcion");
 
@@ -194,6 +200,21 @@ public class FormularioDeInscripcionIF extends javax.swing.JInternalFrame {
             });
         }
     }//GEN-LAST:event_jcbSelectAlumActionPerformed
+
+    private void jbInscribirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbInscribirActionPerformed
+        
+
+//        InscripcionData inscripciondata = new InscripcionData();
+//        Inscripcion inscripcion = new Inscripcion();
+//        
+//        jtTablaInscripcion.getSelectedRow();
+        
+        //this.tblInscripciones.getSelectedRowCount() == 1
+        //(int) tblInscripciones.getValueAt(tblInscripciones.getSelectedRow(), 0)
+        
+     
+     
+    }//GEN-LAST:event_jbInscribirActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
