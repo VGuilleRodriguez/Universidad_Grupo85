@@ -121,6 +121,9 @@ public class AlumnosIF extends javax.swing.JInternalFrame {
 
         jLabel7.setText("ID:");
 
+        jtId.setEditable(false);
+        jtId.setEnabled(false);
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(

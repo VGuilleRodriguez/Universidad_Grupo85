@@ -46,11 +46,11 @@ public class MenuPrincipal extends javax.swing.JFrame {
         escritorio.setLayout(escritorioLayout);
         escritorioLayout.setHorizontalGroup(
             escritorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 803, Short.MAX_VALUE)
+            .addGap(0, 570, Short.MAX_VALUE)
         );
         escritorioLayout.setVerticalGroup(
             escritorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 746, Short.MAX_VALUE)
+            .addGap(0, 558, Short.MAX_VALUE)
         );
 
         jMenuBar1.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
@@ -90,6 +90,11 @@ public class MenuPrincipal extends javax.swing.JFrame {
         MenuAdministracion.add(MenuManejodeInscripcion);
 
         MenuManipulacionNotas.setText("Manipulacion de Notas");
+        MenuManipulacionNotas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                MenuManipulacionNotasActionPerformed(evt);
+            }
+        });
         MenuAdministracion.add(MenuManipulacionNotas);
 
         jMenuBar1.add(MenuAdministracion);
@@ -97,6 +102,11 @@ public class MenuPrincipal extends javax.swing.JFrame {
         MenuConsultas.setText("Consultas");
 
         MenuAlumporMateria.setText("Alumnos por Materia");
+        MenuAlumporMateria.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                MenuAlumporMateriaActionPerformed(evt);
+            }
+        });
         MenuConsultas.add(MenuAlumporMateria);
 
         jMenuBar1.add(MenuConsultas);
@@ -155,6 +165,24 @@ public class MenuPrincipal extends javax.swing.JFrame {
         escritorio.add(fdi);
         escritorio.moveToFront(fdi);
     }//GEN-LAST:event_MenuManejodeInscripcionActionPerformed
+
+    private void MenuManipulacionNotasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MenuManipulacionNotasActionPerformed
+        escritorio.removeAll();
+        escritorio.repaint();
+        CargaDeNotasIF cdn = new CargaDeNotasIF();
+        cdn.setVisible(true);
+        escritorio.add(cdn);
+        escritorio.moveToFront(cdn);
+    }//GEN-LAST:event_MenuManipulacionNotasActionPerformed
+
+    private void MenuAlumporMateriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MenuAlumporMateriaActionPerformed
+        escritorio.removeAll();
+        escritorio.repaint();
+        ConsultaAlumnoPorMateriaIF cam = new ConsultaAlumnoPorMateriaIF();
+        cam.setVisible(true);
+        escritorio.add(cam);
+        escritorio.moveToFront(cam);
+    }//GEN-LAST:event_MenuAlumporMateriaActionPerformed
 
     /**
      * @param args the command line arguments

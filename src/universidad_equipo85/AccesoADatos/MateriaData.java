@@ -82,7 +82,7 @@ public class MateriaData {
     
     public void modificarMateria(Materia materia) { 
 
-        String sql = "UPDATE materia SET nombre = ?, año = ?, estado = ?"
+        String sql = "UPDATE materia SET nombre = ?, año = ?, estado = ? "
                 + "WHERE idMateria = ?";
 
         try {
@@ -90,6 +90,7 @@ public class MateriaData {
             ps.setString(1, materia.getNombre());
             ps.setInt(2, materia.getAño());
             ps.setBoolean(3, materia.isEstado());
+            ps.setInt(4, materia.getIdMateria());
             
             int exito = ps.executeUpdate(); 
                                             
@@ -98,7 +99,7 @@ public class MateriaData {
             } else {
                 mensaje("La materia NO existe");
             }
-
+            ps.close();
         } catch (SQLException ex) {
             mensaje("Error al acceder a la tabla Materia " + ex.getMessage());
         }

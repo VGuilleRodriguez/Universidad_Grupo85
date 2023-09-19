@@ -23,16 +23,16 @@ import universidad_equipo85.Entidades.Materia;
 public class FormularioDeInscripcionIF extends javax.swing.JInternalFrame {
 
     InscripcionData inscriData;
-    
+
     private AlumnoData alumData;
     private DefaultTableModel modelo = new DefaultTableModel();
-    
+
     public FormularioDeInscripcionIF() {
         initComponents();
         armarCabecera();
         cargarComboAlumno();
-        
-        
+        grupoBotones();
+
     }
 
     /**
@@ -44,6 +44,7 @@ public class FormularioDeInscripcionIF extends javax.swing.JInternalFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        buttonGroup1 = new javax.swing.ButtonGroup();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jcbSelectAlum = new javax.swing.JComboBox<>();
@@ -171,22 +172,22 @@ public class FormularioDeInscripcionIF extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jbSalirActionPerformed
 
     private void jcbSelectAlumActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jcbSelectAlumActionPerformed
-         limpiarFilas();
+        limpiarFilas();
 
         InscripcionData inscripciondata = new InscripcionData();
 
-        Alumno alumno = (Alumno)jcbSelectAlum.getSelectedItem();
+        Alumno alumno = (Alumno) jcbSelectAlum.getSelectedItem();
 
-        List<Materia> materias = new ArrayList<>();
+        Set<Materia> materias = new HashSet<>();
 
         if (jrbMateriasInscriptas.isSelected()) {
-             inscripciondata.obtenerMateriaCursadas(alumno.getIdAlumno());
-//        } else if (jrbMateriasNoInscriptas.isSelected()) {
-//             inscripciondata.obtenerMateriaNoCursadas(alumno.getIdAlumno());
+            materias = inscripciondata.obtenerMateriaCursadas(alumno.getIdAlumno());
+        } else if (jrbMateriasNoInscriptas.isSelected()) {
+            materias = inscripciondata.obtenerMateriasNoCursadas(alumno.getIdAlumno());
         }
 
         for (Materia materia : materias) {
-            modelo.addRow(new Object[] {
+            modelo.addRow(new Object[]{
                 materia.getIdMateria(),
                 materia.getNombre(),
                 materia.getAño()
@@ -196,6 +197,7 @@ public class FormularioDeInscripcionIF extends javax.swing.JInternalFrame {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -209,17 +211,17 @@ public class FormularioDeInscripcionIF extends javax.swing.JInternalFrame {
     private javax.swing.JTable jtTablaInscripcion;
     // End of variables declaration//GEN-END:variables
 
-    private void armarCabecera(){
-    
+    private void armarCabecera() {
+
         modelo.addColumn("ID");
         modelo.addColumn("Nombre");
         modelo.addColumn("Año");
         jtTablaInscripcion.setModel(modelo);
-      
+
     }
-    
+
     private void limpiarFilas() {
-        for (int i = modelo.getRowCount() -1; i >= 0; i--) {
+        for (int i = modelo.getRowCount() - 1; i >= 0; i--) {
             modelo.removeRow(i);
         }
     }
@@ -230,20 +232,10 @@ public class FormularioDeInscripcionIF extends javax.swing.JInternalFrame {
             jcbSelectAlum.addItem(alumno);
         }
     }
-//    public void seleccionarAlumno(){
-//    
-//        alumData = new AlumnoData();
-//        List<Alumno> listaAlumno = alumData.listarAlumnos();
-//        jcbSelectAlum.addItem("Seleccionar");
-//        for (Alumno alumno : listaAlumno) {
-//            
-//        
-//        jcbSelectAlum.addItem(alumno.toString()); 
-//        listaAlumno.add(alumno);
-//        }
-//        
-//        
-//    }
-    
-}
 
+    private void grupoBotones() {
+        buttonGroup1.add(jrbMateriasInscriptas);
+        buttonGroup1.add(jrbMateriasNoInscriptas);
+    }
+
+}
