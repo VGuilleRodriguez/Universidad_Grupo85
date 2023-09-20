@@ -5,16 +5,12 @@
  */
 package universidad_equipo85.Vistas;
 
-import java.time.format.DateTimeFormatter;
-import java.util.ArrayList;
 import java.util.HashSet;
-import java.util.List;
 import java.util.Set;
 import javax.swing.table.DefaultTableModel;
 import universidad_equipo85.AccesoADatos.AlumnoData;
 import universidad_equipo85.AccesoADatos.InscripcionData;
 import universidad_equipo85.Entidades.Alumno;
-import universidad_equipo85.Entidades.Inscripcion;
 import universidad_equipo85.Entidades.Materia;
 
 /**

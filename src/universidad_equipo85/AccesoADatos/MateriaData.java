@@ -123,7 +123,7 @@ public class MateriaData {
 
     }
     
-    public List<Materia> listarMatedria() {
+    public List<Materia> listarMateria() {
 
         List<Materia> materias = new ArrayList<>();
         try {

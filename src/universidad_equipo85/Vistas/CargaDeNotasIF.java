@@ -5,17 +5,25 @@
  */
 package universidad_equipo85.Vistas;
 
+import java.util.HashSet;
+import java.util.Set;
+import javax.swing.table.DefaultTableModel;
+import universidad_equipo85.AccesoADatos.AlumnoData;
+import universidad_equipo85.AccesoADatos.InscripcionData;
+import universidad_equipo85.Entidades.Alumno;
+import universidad_equipo85.Entidades.Materia;
+
 /**
  *
  * @author Guillermo Rodriguez
  */
 public class CargaDeNotasIF extends javax.swing.JInternalFrame {
 
-    /**
-     * Creates new form CargaDeNotasIF
-     */
+    DefaultTableModel modelo = new DefaultTableModel();
     public CargaDeNotasIF() {
         initComponents();
+        armarCabecera();
+        cargarComboAlumno();
     }
 
     /**
@@ -42,6 +50,12 @@ public class CargaDeNotasIF extends javax.swing.JInternalFrame {
 
         jLabel2.setText("Seleccione un Alumno:");
 
+        jcbSelectAlum.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jcbSelectAlumActionPerformed(evt);
+            }
+        });
+
         jtTablaNotas.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -55,6 +69,11 @@ public class CargaDeNotasIF extends javax.swing.JInternalFrame {
         jbGuardar.setText("Guardar");
 
         jbSalir.setText("Salir");
+        jbSalir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbSalirActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -104,6 +123,35 @@ public class CargaDeNotasIF extends javax.swing.JInternalFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void jbSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbSalirActionPerformed
+        this.dispose();
+    }//GEN-LAST:event_jbSalirActionPerformed
+
+    private void jcbSelectAlumActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jcbSelectAlumActionPerformed
+        limpiarFilas();
+        InscripcionData inData = new InscripcionData();
+       Alumno alumno = (Alumno) jcbSelectAlum.getSelectedItem();
+       
+
+        Set<Materia> materias = inData.obtenerMateriaCursadas(WIDTH);
+//        modelo.setRowCount(0); //Limpia la tabla antes de agregar nuevos 
+//        if(this.jtTablaNotas.getSelectedRowCount() == 1){
+//             jtTablaNotas.getValueAt(jtTablaNotas.getSelectedRow(), 0);
+//        }
+
+       
+//        this.tblInscripciones.getSelectedRowCount() == 1
+//        (int) tblInscripciones.getValueAt(tblInscripciones.getSelectedRow(), 0)
+        
+        for (Materia materia : materias) {
+            modelo.addRow(new Object[]{
+                materia.getIdMateria(),
+                materia.getNombre(),
+                materia.getAño()
+            });
+        }
+    }//GEN-LAST:event_jcbSelectAlumActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
@@ -111,7 +159,28 @@ public class CargaDeNotasIF extends javax.swing.JInternalFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JButton jbGuardar;
     private javax.swing.JButton jbSalir;
-    private javax.swing.JComboBox<String> jcbSelectAlum;
+    private javax.swing.JComboBox<Alumno> jcbSelectAlum;
     private javax.swing.JTable jtTablaNotas;
     // End of variables declaration//GEN-END:variables
+
+    private void armarCabecera(){
+        modelo.addColumn("ID");
+        modelo.addColumn("NOMBRE");
+        modelo.addColumn("NOTA");
+        jtTablaNotas.setModel(modelo);
+        
+        
+    }
+    private void limpiarFilas() {
+        for (int i = modelo.getRowCount() - 1; i >= 0; i--) {
+            modelo.removeRow(i);
+        }
+    }
+
+    private void cargarComboAlumno() {
+        AlumnoData alumnodata = new AlumnoData();
+        for (Alumno alumno : alumnodata.listarAlumnos()) {
+            jcbSelectAlum.addItem(alumno);
+        }
+    }
 }

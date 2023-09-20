@@ -107,7 +107,7 @@ public class InscripcionData {
     }
 
     public Set<Materia> obtenerMateriaCursadas(int id) {
-        Set<Materia> materias = new HashSet<Materia>();
+        Set<Materia> materias = new HashSet<>();
         try {
             String sql = "SELECT materia.idMateria, nombre, año "
             + "FROM inscripcion JOIN materia " 
