@@ -230,7 +230,7 @@ public class FormularioDeInscripcionIF extends javax.swing.JInternalFrame {
 
         Set<Materia> materias = new HashSet<>();
 
-            materias = inscripciondata.obtenerMateriaCursadas(alumno.getIdAlumno());
+        materias = inscripciondata.obtenerMateriaCursadas(alumno.getIdAlumno());
    
         for (Materia materia : materias) {
             modelo.addRow(new Object[]{
