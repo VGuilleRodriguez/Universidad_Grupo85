@@ -56,7 +56,9 @@ public class MenuPrincipal extends javax.swing.JFrame {
         jMenuBar1.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
 
         MenuAlumno.setText("Alumno");
+        MenuAlumno.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
 
+        MenuItemFormularioAlum.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         MenuItemFormularioAlum.setText("Formulario de Alumno");
         MenuItemFormularioAlum.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -68,7 +70,9 @@ public class MenuPrincipal extends javax.swing.JFrame {
         jMenuBar1.add(MenuAlumno);
 
         MenuMateria.setText("Materia");
+        MenuMateria.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
 
+        MenuFormularioMateria.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         MenuFormularioMateria.setText("Formulario de Materia");
         MenuFormularioMateria.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -80,7 +84,9 @@ public class MenuPrincipal extends javax.swing.JFrame {
         jMenuBar1.add(MenuMateria);
 
         MenuAdministracion.setText("Administracion");
+        MenuAdministracion.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
 
+        MenuManejodeInscripcion.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         MenuManejodeInscripcion.setText("Manejo de Inscripciones");
         MenuManejodeInscripcion.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -89,6 +95,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
         });
         MenuAdministracion.add(MenuManejodeInscripcion);
 
+        MenuManipulacionNotas.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         MenuManipulacionNotas.setText("Manipulacion de Notas");
         MenuManipulacionNotas.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -100,7 +107,9 @@ public class MenuPrincipal extends javax.swing.JFrame {
         jMenuBar1.add(MenuAdministracion);
 
         MenuConsultas.setText("Consultas");
+        MenuConsultas.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
 
+        MenuAlumporMateria.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         MenuAlumporMateria.setText("Alumnos por Materia");
         MenuAlumporMateria.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -112,6 +121,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
         jMenuBar1.add(MenuConsultas);
 
         MenuSalir.setText("Salir");
+        MenuSalir.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         MenuSalir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 MenuSalirActionPerformed(evt);
