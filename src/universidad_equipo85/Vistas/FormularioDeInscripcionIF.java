@@ -22,7 +22,7 @@ import universidad_equipo85.Entidades.Materia;
  */
 public class FormularioDeInscripcionIF extends javax.swing.JInternalFrame {
 
-    InscripcionData inData;
+   private InscripcionData inData= new InscripcionData();
     private AlumnoData alumData;
     
     private static void mensaje(String mensaje) {
@@ -84,8 +84,18 @@ public class FormularioDeInscripcionIF extends javax.swing.JInternalFrame {
         jLabel3.setText("Listado de Materias");
 
         jrbMateriasInscriptas.setText("Materias Inscriptas");
+        jrbMateriasInscriptas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jrbMateriasInscriptasActionPerformed(evt);
+            }
+        });
 
         jrbMateriasNoInscriptas.setText("Materias NO inscriptas");
+        jrbMateriasNoInscriptas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jrbMateriasNoInscriptasActionPerformed(evt);
+            }
+        });
 
         jtTablaInscripcion.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -105,6 +115,11 @@ public class FormularioDeInscripcionIF extends javax.swing.JInternalFrame {
         });
 
         jbAnularInscripcion.setText("Anular Inscripcion");
+        jbAnularInscripcion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbAnularInscripcionActionPerformed(evt);
+            }
+        });
 
         jbSalir.setText("Salir");
         jbSalir.addActionListener(new java.awt.event.ActionListener() {
@@ -186,27 +201,7 @@ public class FormularioDeInscripcionIF extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jbSalirActionPerformed
 
     private void jcbSelectAlumActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jcbSelectAlumActionPerformed
-        limpiarFilas();
 
-        InscripcionData inscripciondata = new InscripcionData();
-
-        Alumno alumno = (Alumno) jcbSelectAlum.getSelectedItem();
-
-        Set<Materia> materias = new HashSet<>();
-
-        if (jrbMateriasInscriptas.isSelected()) {
-            materias = inscripciondata.obtenerMateriaCursadas(alumno.getIdAlumno());
-        } else if (jrbMateriasNoInscriptas.isSelected()) {
-            materias = inscripciondata.obtenerMateriasNoCursadas(alumno.getIdAlumno());
-        }
-
-        for (Materia materia : materias) {
-            modelo.addRow(new Object[]{
-                materia.getIdMateria(),
-                materia.getNombre(),
-                materia.getAño()
-            });
-        }
     }//GEN-LAST:event_jcbSelectAlumActionPerformed
 
     private void jbInscribirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbInscribirActionPerformed
@@ -217,24 +212,70 @@ public class FormularioDeInscripcionIF extends javax.swing.JInternalFrame {
             
             MateriaData md = new MateriaData();
             Materia materia = md.buscarMateria(idMateria);
-            
             Alumno alumno =(Alumno)jcbSelectAlum.getSelectedItem();
-            
-            Inscripcion inscripcion = new Inscripcion(alumno, materia,0);
-            
-            inData.guardarInscripcion(inscripcion);
+            Inscripcion inscripcion = new Inscripcion(alumno, materia, 0.0);
+           inData.guardarInscripcion(inscripcion);
         }else{
             mensaje("No puede inscribir el alumno");
         }     
 
-//        InscripcionData inscripciondata = new InscripcionData();
-//        Inscripcion inscripcion = new Inscripcion();
-//        
-//        jtTablaInscripcion.getSelectedRow();
-        
-        //this.tblInscripciones.getSelectedRowCount() == 1
-        //(int) tblInscripciones.getValueAt(tblInscripciones.getSelectedRow(), 0)    
     }//GEN-LAST:event_jbInscribirActionPerformed
+
+    private void jrbMateriasInscriptasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jrbMateriasInscriptasActionPerformed
+         limpiarFilas();
+
+        InscripcionData inscripciondata = new InscripcionData();
+
+        Alumno alumno = (Alumno) jcbSelectAlum.getSelectedItem();
+
+        Set<Materia> materias = new HashSet<>();
+
+            materias = inscripciondata.obtenerMateriaCursadas(alumno.getIdAlumno());
+   
+        for (Materia materia : materias) {
+            modelo.addRow(new Object[]{
+                materia.getIdMateria(),
+                materia.getNombre(),
+                materia.getAño()
+            });
+        }
+    }//GEN-LAST:event_jrbMateriasInscriptasActionPerformed
+
+    private void jrbMateriasNoInscriptasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jrbMateriasNoInscriptasActionPerformed
+      limpiarFilas();
+
+        InscripcionData inscripciondata = new InscripcionData();
+
+        Alumno alumno = (Alumno) jcbSelectAlum.getSelectedItem();
+
+        Set<Materia> materias = new HashSet<>();
+
+   
+            materias = inscripciondata.obtenerMateriasNoCursadas(alumno.getIdAlumno());
+        
+
+        for (Materia materia : materias) {
+            modelo.addRow(new Object[]{
+                materia.getIdMateria(),
+                materia.getNombre(),
+                materia.getAño()
+            });
+        }
+    }//GEN-LAST:event_jrbMateriasNoInscriptasActionPerformed
+
+    private void jbAnularInscripcionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbAnularInscripcionActionPerformed
+        int row = jtTablaInscripcion.getSelectedRow();
+        if(row !=-1 && jrbMateriasInscriptas.isSelected()){
+            int idMateria = (int)jtTablaInscripcion.getValueAt(row, 0);
+            
+            MateriaData md = new MateriaData();
+            Materia materia = md.buscarMateria(idMateria);
+            Alumno alumno =(Alumno)jcbSelectAlum.getSelectedItem();
+           inData.borrarInscripcionMateriaAlumno(alumno.getIdAlumno(), idMateria);
+        }else{
+            mensaje("No puede desincribir el alumno");
+        }     
+    }//GEN-LAST:event_jbAnularInscripcionActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
