@@ -7,10 +7,13 @@ package universidad_equipo85.Vistas;
 
 import java.util.HashSet;
 import java.util.Set;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import universidad_equipo85.AccesoADatos.AlumnoData;
 import universidad_equipo85.AccesoADatos.InscripcionData;
+import universidad_equipo85.AccesoADatos.MateriaData;
 import universidad_equipo85.Entidades.Alumno;
+import universidad_equipo85.Entidades.Inscripcion;
 import universidad_equipo85.Entidades.Materia;
 
 /**
@@ -19,10 +22,19 @@ import universidad_equipo85.Entidades.Materia;
  */
 public class FormularioDeInscripcionIF extends javax.swing.JInternalFrame {
 
-    InscripcionData inscriData;
-
+    InscripcionData inData;
     private AlumnoData alumData;
-    private DefaultTableModel modelo = new DefaultTableModel();
+    
+    private static void mensaje(String mensaje) {
+        JOptionPane.showMessageDialog(null, mensaje);
+    }
+
+    private DefaultTableModel modelo = new DefaultTableModel(){
+        public boolean isCellEditable(int r, int c){
+            return false;
+        }
+    };
+            
 
     public FormularioDeInscripcionIF() {
         initComponents();
@@ -199,6 +211,21 @@ public class FormularioDeInscripcionIF extends javax.swing.JInternalFrame {
 
     private void jbInscribirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbInscribirActionPerformed
         
+        int row = jtTablaInscripcion.getSelectedRow();
+        if(row !=-1 && jrbMateriasNoInscriptas.isSelected()){
+            int idMateria = (int)jtTablaInscripcion.getValueAt(row, 0);
+            
+            MateriaData md = new MateriaData();
+            Materia materia = md.buscarMateria(idMateria);
+            
+            Alumno alumno =(Alumno)jcbSelectAlum.getSelectedItem();
+            
+            Inscripcion inscripcion = new Inscripcion(alumno, materia,0);
+            
+            inData.guardarInscripcion(inscripcion);
+        }else{
+            mensaje("No puede inscribir el alumno");
+        }     
 
 //        InscripcionData inscripciondata = new InscripcionData();
 //        Inscripcion inscripcion = new Inscripcion();
@@ -206,10 +233,7 @@ public class FormularioDeInscripcionIF extends javax.swing.JInternalFrame {
 //        jtTablaInscripcion.getSelectedRow();
         
         //this.tblInscripciones.getSelectedRowCount() == 1
-        //(int) tblInscripciones.getValueAt(tblInscripciones.getSelectedRow(), 0)
-        
-     
-     
+        //(int) tblInscripciones.getValueAt(tblInscripciones.getSelectedRow(), 0)    
     }//GEN-LAST:event_jbInscribirActionPerformed
 
 

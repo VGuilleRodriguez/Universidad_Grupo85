@@ -134,7 +134,7 @@ public class CargaDeNotasIF extends javax.swing.JInternalFrame {
        
 
         Set<Materia> materias = inData.obtenerMateriaCursadas(WIDTH);
-//        modelo.setRowCount(0); //Limpia la tabla antes de agregar nuevos 
+//         
 //        if(this.jtTablaNotas.getSelectedRowCount() == 1){
 //             jtTablaNotas.getValueAt(jtTablaNotas.getSelectedRow(), 0);
 //        }
