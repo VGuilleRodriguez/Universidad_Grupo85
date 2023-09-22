@@ -71,7 +71,7 @@ public class CargaDeNotasIF extends javax.swing.JInternalFrame {
         ));
         jScrollPane1.setViewportView(jtTablaNotas);
 
-        jbGuardar.setText("Guardar");
+        jbGuardar.setText("Agregar");
         jbGuardar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jbGuardarActionPerformed(evt);
@@ -90,6 +90,10 @@ public class CargaDeNotasIF extends javax.swing.JInternalFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
+                .addGap(134, 134, 134)
+                .addComponent(jLabel1)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(21, 21, 21)
@@ -99,18 +103,13 @@ public class CargaDeNotasIF extends javax.swing.JInternalFrame {
                         .addGap(0, 19, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)))
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jbGuardar)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jbSalir)))
                 .addContainerGap())
-            .addGroup(layout.createSequentialGroup()
-                .addGap(134, 134, 134)
-                .addComponent(jLabel1)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jbGuardar)
-                .addGap(43, 43, 43)
-                .addComponent(jbSalir)
-                .addGap(26, 26, 26))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -127,7 +126,7 @@ public class CargaDeNotasIF extends javax.swing.JInternalFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jbGuardar)
                     .addComponent(jbSalir))
-                .addContainerGap(20, Short.MAX_VALUE))
+                .addContainerGap(24, Short.MAX_VALUE))
         );
 
         pack();
@@ -159,16 +158,21 @@ public class CargaDeNotasIF extends javax.swing.JInternalFrame {
         int row = jtTablaNotas.getSelectedRow();
         double nota = Double.parseDouble(JOptionPane.showInputDialog(this, "Ingrese la nota para actualizar", "Actualizar nota", JOptionPane.WARNING_MESSAGE));
         if(row !=-1){
+            if(nota > 0 && nota <= 10){
             int idmateria = (int)jtTablaNotas.getValueAt(row, 0);
              Alumno alumno = (Alumno) jcbSelectAlum.getSelectedItem();
              InscripcionData inData = new InscripcionData();
              inData.actualizarNota(alumno.getIdAlumno(), idmateria, nota);
- 
+            } else {
+            JOptionPane.showMessageDialog(null, "Nota invalida");
+            }
         }else{
             JOptionPane.showMessageDialog(null, "Debe seleccionar una materia");
         }     
      }catch (NumberFormatException ex){
          JOptionPane.showMessageDialog(this, "ERROR! La nota debe ser un numero");
+     } catch (NullPointerException ex){
+        
      }         
         
     }//GEN-LAST:event_jbGuardarActionPerformed

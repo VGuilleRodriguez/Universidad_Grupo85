@@ -6,6 +6,7 @@
 package universidad_equipo85.Vistas;
 
 import java.util.TreeSet;
+import javax.swing.JOptionPane;
 import universidad_equipo85.AccesoADatos.AlumnoData;
 
 /**
@@ -122,9 +123,9 @@ public class MenuPrincipal extends javax.swing.JFrame {
 
         MenuSalir.setText("Salir");
         MenuSalir.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
-        MenuSalir.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                MenuSalirActionPerformed(evt);
+        MenuSalir.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                MenuSalirMouseClicked(evt);
             }
         });
         jMenuBar1.add(MenuSalir);
@@ -163,10 +164,6 @@ public class MenuPrincipal extends javax.swing.JFrame {
         escritorio.moveToFront(mIF);
     }//GEN-LAST:event_MenuFormularioMateriaActionPerformed
 
-    private void MenuSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MenuSalirActionPerformed
-        
-    }//GEN-LAST:event_MenuSalirActionPerformed
-
     private void MenuManejodeInscripcionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MenuManejodeInscripcionActionPerformed
         escritorio.removeAll();
         escritorio.repaint();
@@ -193,6 +190,10 @@ public class MenuPrincipal extends javax.swing.JFrame {
         escritorio.add(cam);
         escritorio.moveToFront(cam);
     }//GEN-LAST:event_MenuAlumporMateriaActionPerformed
+
+    private void MenuSalirMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_MenuSalirMouseClicked
+      System.exit(0);
+    }//GEN-LAST:event_MenuSalirMouseClicked
 
     /**
      * @param args the command line arguments
