@@ -238,13 +238,9 @@ public class AlumnosIF extends javax.swing.JInternalFrame {
 
         AlumnoData aluData = new AlumnoData();
         try {
-            //            int dni = Integer.parseInt(jtDocumento.getText());
-            //            String nombre = jtNombre.getText();
-            //            String apellido = jtApellido.getText();
-            //            boolean estado = jcboxEstado.isSelected();
-            //            java.sql.Date fechaNacimiento = new java.sql.Date(jdFecha.getDate().getTime());
-            //
-            //            Alumno alumno = new Alumno(dni, apellido, nombre, fechaNacimiento.toLocalDate(), estado);
+            if(jtDocumento.getText().isEmpty() || jtApellido.getText().isEmpty() || jtNombre.getText().isEmpty() || jdFecha.getDate()==null){
+            JOptionPane.showMessageDialog(this, "No debe haber campos vacios");
+            }else{
             Alumno alumno = new Alumno();
             alumno.setDni(Integer.parseInt(jtDocumento.getText()));
             alumno.setApellido(jtApellido.getText());
@@ -252,10 +248,11 @@ public class AlumnosIF extends javax.swing.JInternalFrame {
             alumno.setFechaNacimiento(jdFecha.getDate().toInstant().atZone(ZoneId.systemDefault()).toLocalDate());
             alumno.setEstado(jcboxEstado.isSelected());
             aluData.guardarAlumno(alumno);
-        } catch (NullPointerException ex) {
-            JOptionPane.showMessageDialog(this, "El DNI es invalido o no existe.");
+            }
         } catch (NumberFormatException ex) {
-            JOptionPane.showMessageDialog(this, "Debe ingresar el DNI del alumno.");
+            JOptionPane.showMessageDialog(this, "El DNI deben ser numeros");
+//            } catch (NullPointerException ex) {
+//            JOptionPane.showMessageDialog(this, "El DNI es invalido");
         }
     }//GEN-LAST:event_jbNuevoActionPerformed
 

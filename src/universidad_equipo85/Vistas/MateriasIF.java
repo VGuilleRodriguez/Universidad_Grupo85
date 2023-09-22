@@ -197,31 +197,51 @@ public class MateriasIF extends javax.swing.JInternalFrame {
 
     private void jbBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbBuscarActionPerformed
 
-        int id = Integer.parseInt(jtId.getText());
-        MateriaData md = new MateriaData();
-        Materia materia = md.buscarMateria(id);
-        jtNombre.setText(materia.getNombre());
-        String a = Integer.toString(materia.getAño());
-        jtAnio.setText(a);
-
-        if (materia.isEstado() == true) {
-            jcboxEstado.setSelected(true);
+        try {
+            MateriaData materiadata = new MateriaData();
+            Materia materia = materiadata.buscarMateria(Integer.parseInt(jtId.getText()));
+            if (materia != null) {
+                jtNombre.setText(materia.getNombre());
+                jtAnio.setText(materia.getAño()+"");
+                jcboxEstado.setSelected(materia.isEstado());
+            }
+        } catch (NumberFormatException ex) {
+            JOptionPane.showMessageDialog(this, "ID invalido.");
         }
-        md.buscarMateria(id);
+
+//        try{
+//       
+//        int id = Integer.parseInt(jtId.getText());
+//        MateriaData md = new MateriaData();
+//        Materia materia = md.buscarMateria(id);
+//        jtNombre.setText(materia.getNombre());
+//        String a = Integer.toString(materia.getAño());
+//        jtAnio.setText(a);
+//
+//        if (materia.isEstado() == true) {
+//            jcboxEstado.setSelected(true);
+//        }
+//        md.buscarMateria(id);
+//        }catch (NullPointerException ex){
+//            JOptionPane.showMessageDialog(this, "el campo del ID esta vacio");
+//        }catch(NumberFormatException ex){
+//            JOptionPane.showMessageDialog(this, "ID deben ser numeros");
+//        }
     }//GEN-LAST:event_jbBuscarActionPerformed
 
     private void jbNuevoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbNuevoActionPerformed
-        MateriaData md = new MateriaData();
+        if (jtId.getText().isEmpty() || jtNombre.getText().isEmpty() || jtAnio.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(null, "No deben haber campos vacios");
+        } else {
+            MateriaData md = new MateriaData();
+            String nombre = jtNombre.getText();
+            String a = jtAnio.getText();
+            int año = Integer.parseInt(a);
+            boolean estado = jcboxEstado.isSelected();
 
-//        int id = Integer.parseInt(jtID.getText());
-        String nombre = jtNombre.getText();
-        String a = jtAnio.getText();
-        int año = Integer.parseInt(a);
-        boolean estado = jcboxEstado.isSelected();
-
-        Materia materia = new Materia(nombre, año, estado);
-        md.guardarMateria(materia);
-
+            Materia materia = new Materia(nombre, año, estado);
+            md.guardarMateria(materia);
+        }
 
     }//GEN-LAST:event_jbNuevoActionPerformed
 
