@@ -22,19 +22,18 @@ import universidad_equipo85.Entidades.Materia;
  */
 public class FormularioDeInscripcionIF extends javax.swing.JInternalFrame {
 
-   private InscripcionData inData= new InscripcionData();
+    private InscripcionData inData = new InscripcionData();
     private AlumnoData alumData;
-    
+
     private static void mensaje(String mensaje) {
         JOptionPane.showMessageDialog(null, mensaje);
     }
 
-    private DefaultTableModel modelo = new DefaultTableModel(){
-        public boolean isCellEditable(int r, int c){
+    private DefaultTableModel modelo = new DefaultTableModel() {
+        public boolean isCellEditable(int r, int c) {
             return false;
         }
     };
-            
 
     public FormularioDeInscripcionIF() {
         initComponents();
@@ -201,82 +200,52 @@ public class FormularioDeInscripcionIF extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jbSalirActionPerformed
 
     private void jcbSelectAlumActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jcbSelectAlumActionPerformed
-
+        refrescarTabla();
     }//GEN-LAST:event_jcbSelectAlumActionPerformed
 
     private void jbInscribirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbInscribirActionPerformed
-        
+
         int row = jtTablaInscripcion.getSelectedRow();
-        if(row !=-1 && jrbMateriasNoInscriptas.isSelected()){
-            int idMateria = (int)jtTablaInscripcion.getValueAt(row, 0);
-            
+        if (row != -1 && jrbMateriasNoInscriptas.isSelected()) {
+            int idMateria = (int) jtTablaInscripcion.getValueAt(row, 0);
+
             MateriaData md = new MateriaData();
             Materia materia = md.buscarMateria(idMateria);
-            Alumno alumno =(Alumno)jcbSelectAlum.getSelectedItem();
+            Alumno alumno = (Alumno) jcbSelectAlum.getSelectedItem();
             Inscripcion inscripcion = new Inscripcion(alumno, materia, 0.0);
-           inData.guardarInscripcion(inscripcion);
-        }else{
-            mensaje("No puede inscribir el alumno");
-        }     
+            inData.guardarInscripcion(inscripcion);
+            refrescarTabla();
+        } else {
+            mensaje("Alumno ya inscripto");
+        }
 
     }//GEN-LAST:event_jbInscribirActionPerformed
 
     private void jrbMateriasInscriptasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jrbMateriasInscriptasActionPerformed
-         limpiarFilas();
-
-        InscripcionData inscripciondata = new InscripcionData();
-
-        Alumno alumno = (Alumno) jcbSelectAlum.getSelectedItem();
-
-        Set<Materia> materias = new HashSet<>();
-
-        materias = inscripciondata.obtenerMateriaCursadas(alumno.getIdAlumno());
-   
-        for (Materia materia : materias) {
-            modelo.addRow(new Object[]{
-                materia.getIdMateria(),
-                materia.getNombre(),
-                materia.getAño()
-            });
-        }
+        refrescarTabla();
     }//GEN-LAST:event_jrbMateriasInscriptasActionPerformed
 
     private void jrbMateriasNoInscriptasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jrbMateriasNoInscriptasActionPerformed
-      limpiarFilas();
-
-        InscripcionData inscripciondata = new InscripcionData();
-
-        Alumno alumno = (Alumno) jcbSelectAlum.getSelectedItem();
-
-        Set<Materia> materias = new HashSet<>();
-
-   
-            materias = inscripciondata.obtenerMateriasNoCursadas(alumno.getIdAlumno());
-        
-
-        for (Materia materia : materias) {
-            modelo.addRow(new Object[]{
-                materia.getIdMateria(),
-                materia.getNombre(),
-                materia.getAño()
-            });
-        }
+        refrescarTabla();
     }//GEN-LAST:event_jrbMateriasNoInscriptasActionPerformed
 
     private void jbAnularInscripcionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbAnularInscripcionActionPerformed
         int row = jtTablaInscripcion.getSelectedRow();
-        if(row !=-1 && jrbMateriasInscriptas.isSelected()){
-            int idMateria = (int)jtTablaInscripcion.getValueAt(row, 0);
-            
+        int resultado = JOptionPane.showConfirmDialog(this, "¿Esta seguro que desea anular la inscripcion?");
+        if (resultado == 0) { 
+        if (row != -1 && jrbMateriasInscriptas.isSelected()) {
+            int idMateria = (int) jtTablaInscripcion.getValueAt(row, 0);
+
             MateriaData md = new MateriaData();
             Materia materia = md.buscarMateria(idMateria);
-            Alumno alumno =(Alumno)jcbSelectAlum.getSelectedItem();
-           inData.borrarInscripcionMateriaAlumno(alumno.getIdAlumno(), idMateria);
-        }else{
+            Alumno alumno = (Alumno) jcbSelectAlum.getSelectedItem();
+            inData.borrarInscripcionMateriaAlumno(alumno.getIdAlumno(), idMateria);
+            refrescarTabla();
+        } else {
             mensaje("No puede desincribir el alumno");
-        }     
+        }
     }//GEN-LAST:event_jbAnularInscripcionActionPerformed
-
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.ButtonGroup buttonGroup1;
@@ -318,6 +287,29 @@ public class FormularioDeInscripcionIF extends javax.swing.JInternalFrame {
     private void grupoBotones() {
         buttonGroup1.add(jrbMateriasInscriptas);
         buttonGroup1.add(jrbMateriasNoInscriptas);
+    }
+
+    private void refrescarTabla() {
+        limpiarFilas();
+
+        InscripcionData inscripciondata = new InscripcionData();
+
+        Alumno alumno = (Alumno) jcbSelectAlum.getSelectedItem();
+
+        Set<Materia> materias = new HashSet<>();
+        if (jrbMateriasInscriptas.isSelected()) {
+            materias = inscripciondata.obtenerMateriaCursadas(alumno.getIdAlumno());
+        } else if (jrbMateriasNoInscriptas.isSelected()) {
+            materias = inscripciondata.obtenerMateriasNoCursadas(alumno.getIdAlumno());
+        }
+        for (Materia materia : materias) {
+            modelo.addRow(new Object[]{
+                materia.getIdMateria(),
+                materia.getNombre(),
+                materia.getAño()
+            });
+        }
+
     }
 
 }

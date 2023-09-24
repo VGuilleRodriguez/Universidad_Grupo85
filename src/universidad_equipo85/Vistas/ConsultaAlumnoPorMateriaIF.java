@@ -22,7 +22,11 @@ import universidad_equipo85.Entidades.Materia;
  */
 public class ConsultaAlumnoPorMateriaIF extends javax.swing.JInternalFrame {
 
-   private DefaultTableModel modelo = new DefaultTableModel();
+   private DefaultTableModel modelo = new DefaultTableModel(){
+    public boolean isCellEditable(int fila, int columna){
+            return false;
+        }
+   };
   
    
     

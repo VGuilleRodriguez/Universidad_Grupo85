@@ -24,11 +24,17 @@ import universidad_equipo85.Entidades.Materia;
  */
 public class CargaDeNotasIF extends javax.swing.JInternalFrame {
 
-    DefaultTableModel modelo = new DefaultTableModel();
+    DefaultTableModel modelo = new DefaultTableModel(){
+        public boolean isCellEditable(int fila, int columna){
+            return false;
+        }
+    };
+    
     public CargaDeNotasIF() {
         initComponents();
         armarCabecera();
         cargarComboAlumno();
+        
     }
 
     /**
@@ -137,20 +143,21 @@ public class CargaDeNotasIF extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jbSalirActionPerformed
 
     private void jcbSelectAlumActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jcbSelectAlumActionPerformed
-        limpiarFilas();
-        InscripcionData inData = new InscripcionData();
-        Alumno alumno = (Alumno) jcbSelectAlum.getSelectedItem();
-        List<Inscripcion> lista = new ArrayList<>();
-        lista = inData.obtenerInscripcionPorAlumno(alumno.getIdAlumno());
-
-        
-        for (Inscripcion insc : lista) {
-            modelo.addRow(new Object[]{
-                insc.getMateria().getIdMateria(),
-                insc.getMateria().getNombre(),
-                insc.getNota()
-            });
-        }
+        refrescarTabla();
+//        limpiarFilas();
+//        InscripcionData inData = new InscripcionData();
+//        Alumno alumno = (Alumno) jcbSelectAlum.getSelectedItem();
+//        List<Inscripcion> lista = new ArrayList<>();
+//        lista = inData.obtenerInscripcionPorAlumno(alumno.getIdAlumno());
+//
+//        
+//        for (Inscripcion insc : lista) {
+//            modelo.addRow(new Object[]{
+//                insc.getMateria().getIdMateria(),
+//                insc.getMateria().getNombre(),
+//                insc.getNota()
+//            });
+//        }
     }//GEN-LAST:event_jcbSelectAlumActionPerformed
 
     private void jbGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbGuardarActionPerformed
@@ -163,6 +170,7 @@ public class CargaDeNotasIF extends javax.swing.JInternalFrame {
              Alumno alumno = (Alumno) jcbSelectAlum.getSelectedItem();
              InscripcionData inData = new InscripcionData();
              inData.actualizarNota(alumno.getIdAlumno(), idmateria, nota);
+             refrescarTabla();
             } else {
             JOptionPane.showMessageDialog(null, "Nota invalida");
             }
@@ -207,5 +215,24 @@ public class CargaDeNotasIF extends javax.swing.JInternalFrame {
         for (Alumno alumno : alumnodata.listarAlumnos()) {
             jcbSelectAlum.addItem(alumno);
         }
+    }
+    
+    private void refrescarTabla(){
+    
+         limpiarFilas();
+        InscripcionData inData = new InscripcionData();
+        Alumno alumno = (Alumno) jcbSelectAlum.getSelectedItem();
+        List<Inscripcion> lista = new ArrayList<>();
+        lista = inData.obtenerInscripcionPorAlumno(alumno.getIdAlumno());
+
+        
+        for (Inscripcion insc : lista) {
+            modelo.addRow(new Object[]{
+                insc.getMateria().getIdMateria(),
+                insc.getMateria().getNombre(),
+                insc.getNota()
+            });
+        }
+    
     }
 }

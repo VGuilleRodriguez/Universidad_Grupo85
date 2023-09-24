@@ -293,6 +293,8 @@ public class AlumnosIF extends javax.swing.JInternalFrame {
     private void jbEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbEliminarActionPerformed
         try {
             int dni = Integer.parseInt(jtDocumento.getText());
+            int resultado = JOptionPane.showConfirmDialog(this, "¿Esta seguro que quieres eliminar el alumno?");
+        if (resultado == 0){
             AlumnoData x = new AlumnoData();
             Alumno alumno = x.buscarAlumnoPorDni(dni);
             jtId.setText(alumno.getIdAlumno()+"");
@@ -303,6 +305,7 @@ public class AlumnosIF extends javax.swing.JInternalFrame {
             }
             jdFecha.setDate(Date.from(alumno.getFechaNacimiento().atStartOfDay().toInstant(ZoneOffset.UTC)));
             x.eliminarAlumno(dni);
+        }
         } catch (NullPointerException ex) {
             JOptionPane.showMessageDialog(this, "El DNI es invalido o no existe.");
         } catch (NumberFormatException ex) {
