@@ -362,7 +362,7 @@ public class AlumnosIF extends javax.swing.JInternalFrame {
             if (alumno.isEstado() == true) {
                 jcboxEstado.setSelected(true);
             }
-            jdFecha.setDate(Date.from(alumno.getFechaNacimiento().atStartOfDay().toInstant(ZoneOffset.UTC)));
+            jdFecha.setDate(java.sql.Date.valueOf(alumno.getFechaNacimiento()));
         } catch (NullPointerException ex) {
             JOptionPane.showMessageDialog(this, "El DNI es invalido o no existe.");
         } catch (NumberFormatException ex) {

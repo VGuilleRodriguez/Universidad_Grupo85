@@ -116,7 +116,7 @@ public class FormularioDeInscripcionIF extends javax.swing.JInternalFrame {
         jScrollPane1.setViewportView(jtTablaInscripcion);
 
         jbInscribir.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
-        jbInscribir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/universidad_equipo85/imagenes/text-plus.png"))); // NOI18N
+        jbInscribir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/universidad_equipo85/imagenes/user-plus.png"))); // NOI18N
         jbInscribir.setText("Inscribir");
         jbInscribir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -125,7 +125,7 @@ public class FormularioDeInscripcionIF extends javax.swing.JInternalFrame {
         });
 
         jbAnularInscripcion.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
-        jbAnularInscripcion.setIcon(new javax.swing.ImageIcon(getClass().getResource("/universidad_equipo85/imagenes/Cancel.png"))); // NOI18N
+        jbAnularInscripcion.setIcon(new javax.swing.ImageIcon(getClass().getResource("/universidad_equipo85/imagenes/user-cancel.png"))); // NOI18N
         jbAnularInscripcion.setText("Anular Inscripcion");
         jbAnularInscripcion.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -154,9 +154,9 @@ public class FormularioDeInscripcionIF extends javax.swing.JInternalFrame {
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                                 .addGap(19, 19, 19)
                                 .addComponent(jbInscribir)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGap(36, 36, 36)
                                 .addComponent(jbAnularInscripcion)
-                                .addGap(27, 27, 27)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(jbSalir)
                                 .addGap(22, 22, 22))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
@@ -196,7 +196,7 @@ public class FormularioDeInscripcionIF extends javax.swing.JInternalFrame {
                     .addComponent(jrbMateriasInscriptas))
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 243, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 16, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 26, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jbAnularInscripcion)
                     .addComponent(jbSalir)
@@ -241,7 +241,6 @@ public class FormularioDeInscripcionIF extends javax.swing.JInternalFrame {
         } else {
             mensaje("Alumno ya inscripto");
         }
-
     }//GEN-LAST:event_jbInscribirActionPerformed
 
     private void jrbMateriasInscriptasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jrbMateriasInscriptasActionPerformed
@@ -255,18 +254,18 @@ public class FormularioDeInscripcionIF extends javax.swing.JInternalFrame {
     private void jbAnularInscripcionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbAnularInscripcionActionPerformed
         int row = jtTablaInscripcion.getSelectedRow();
         int resultado = JOptionPane.showConfirmDialog(this, "¿Esta seguro que desea anular la inscripcion?");
-        if (resultado == 0) { 
-        if (row != -1 && jrbMateriasInscriptas.isSelected()) {
-            int idMateria = (int) jtTablaInscripcion.getValueAt(row, 0);
+        if (resultado == 0) {
+            if (row != -1 && jrbMateriasInscriptas.isSelected()) {
+                int idMateria = (int) jtTablaInscripcion.getValueAt(row, 0);
 
-            MateriaData md = new MateriaData();
-            Materia materia = md.buscarMateria(idMateria);
-            Alumno alumno = (Alumno) jcbSelectAlum.getSelectedItem();
-            inData.borrarInscripcionMateriaAlumno(alumno.getIdAlumno(), idMateria);
-            refrescarTabla();
-        } else {
-            mensaje("No puede desincribir el alumno");
-        }
+                MateriaData md = new MateriaData();
+                Materia materia = md.buscarMateria(idMateria);
+                Alumno alumno = (Alumno) jcbSelectAlum.getSelectedItem();
+                inData.borrarInscripcionMateriaAlumno(alumno.getIdAlumno(), idMateria);
+                refrescarTabla();
+            } else {
+                mensaje("No puede desincribir el alumno");
+            }
     }//GEN-LAST:event_jbAnularInscripcionActionPerformed
     }
 

@@ -163,20 +163,6 @@ public class CargaDeNotasIF extends javax.swing.JInternalFrame {
 
     private void jcbSelectAlumActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jcbSelectAlumActionPerformed
         refrescarTabla();
-//        limpiarFilas();
-//        InscripcionData inData = new InscripcionData();
-//        Alumno alumno = (Alumno) jcbSelectAlum.getSelectedItem();
-//        List<Inscripcion> lista = new ArrayList<>();
-//        lista = inData.obtenerInscripcionPorAlumno(alumno.getIdAlumno());
-//
-//        
-//        for (Inscripcion insc : lista) {
-//            modelo.addRow(new Object[]{
-//                insc.getMateria().getIdMateria(),
-//                insc.getMateria().getNombre(),
-//                insc.getNota()
-//            });
-//        }
     }//GEN-LAST:event_jcbSelectAlumActionPerformed
 
     private void jbGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbGuardarActionPerformed
