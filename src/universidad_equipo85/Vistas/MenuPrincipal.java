@@ -6,6 +6,7 @@
 package universidad_equipo85.Vistas;
 
 import java.util.TreeSet;
+import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 import universidad_equipo85.AccesoADatos.AlumnoData;
 
@@ -19,6 +20,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
     
     public MenuPrincipal() {
         initComponents();
+        setIconImage(new ImageIcon(getClass().getResource("/universidad_equipo85/imagenes/loguitoULP.png")).getImage());
         this.setLocationRelativeTo(null);        
     }
 
@@ -44,6 +46,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Universidad ULP");
+        setIconImage(getIconImage());
 
         escritorio.setPreferredSize(new java.awt.Dimension(800, 600));
 

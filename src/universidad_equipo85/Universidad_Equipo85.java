@@ -6,6 +6,7 @@ import java.time.LocalDate;
 import universidad_equipo85.AccesoADatos.AlumnoData;
 import universidad_equipo85.AccesoADatos.Conexion;
 import universidad_equipo85.Entidades.Alumno;
+import universidad_equipo85.Vistas.MenuPrincipal;
 
 /**
  *
@@ -14,6 +15,10 @@ import universidad_equipo85.Entidades.Alumno;
 public class Universidad_Equipo85 {
     
     public static void main(String[] args) {
+        
+//        MenuPrincipal escritoriop = new MenuPrincipal();
+//        escritoriop.setVisible(true);
+//        escritoriop.setLocationRelativeTo(null);
         
         //Conexion.getConexion();  //Probando conexion
         
