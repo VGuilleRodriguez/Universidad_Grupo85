@@ -45,6 +45,8 @@ public class MenuPrincipal extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Universidad ULP");
 
+        escritorio.setPreferredSize(new java.awt.Dimension(800, 600));
+
         jlLogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/universidad_equipo85/imagenes/logo-ulp.png"))); // NOI18N
 
         escritorio.setLayer(jlLogo, javax.swing.JLayeredPane.DEFAULT_LAYER);
@@ -148,11 +150,11 @@ public class MenuPrincipal extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(escritorio)
+            .addComponent(escritorio, javax.swing.GroupLayout.DEFAULT_SIZE, 792, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(escritorio)
+            .addComponent(escritorio, javax.swing.GroupLayout.DEFAULT_SIZE, 558, Short.MAX_VALUE)
         );
 
         pack();

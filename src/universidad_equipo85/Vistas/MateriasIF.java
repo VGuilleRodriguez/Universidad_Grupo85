@@ -18,6 +18,10 @@ import universidad_equipo85.Entidades.Materia;
  */
 public class MateriasIF extends javax.swing.JInternalFrame {
 
+    private static void mensaje(String mensaje) {
+        JOptionPane.showMessageDialog(null, mensaje);
+    }
+    
     public MateriasIF() {
         initComponents();
         MateriaData md;
@@ -33,31 +37,33 @@ public class MateriasIF extends javax.swing.JInternalFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
+        jSeparator1 = new javax.swing.JSeparator();
         jtId = new javax.swing.JTextField();
         jbBuscar = new javax.swing.JButton();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
-        jbNuevo = new javax.swing.JButton();
-        jbEliminar = new javax.swing.JButton();
-        jbModificar = new javax.swing.JButton();
-        jbSalir = new javax.swing.JButton();
         jtNombre = new javax.swing.JTextField();
         jtAnio = new javax.swing.JTextField();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
         jcboxEstado = new javax.swing.JCheckBox();
-        jSeparator1 = new javax.swing.JSeparator();
+        jbNuevo = new javax.swing.JButton();
+        jbModificar = new javax.swing.JButton();
         jbLimpiar = new javax.swing.JButton();
+        jbEliminar = new javax.swing.JButton();
+        jbSalir = new javax.swing.JButton();
 
+        setBackground(new java.awt.Color(0, 204, 204));
         setTitle("Materias");
+
+        jPanel1.setBackground(new java.awt.Color(212, 230, 241));
 
         jLabel1.setFont(new java.awt.Font("Arial Black", 1, 18)); // NOI18N
         jLabel1.setText("Materia");
 
-        jLabel2.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        jLabel2.setText("ID:");
-
+        jtId.setBackground(new java.awt.Color(127, 179, 213));
         jtId.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
 
         jbBuscar.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
@@ -69,14 +75,31 @@ public class MateriasIF extends javax.swing.JInternalFrame {
             }
         });
 
-        jLabel3.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        jLabel3.setText("Nombre:");
+        jtNombre.setBackground(new java.awt.Color(127, 179, 213));
+        jtNombre.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+
+        jtAnio.setBackground(new java.awt.Color(127, 179, 213));
+        jtAnio.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
 
         jLabel4.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel4.setText("Año:");
 
+        jLabel3.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        jLabel3.setText("Nombre:");
+
+        jLabel2.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        jLabel2.setText("ID:");
+
         jLabel5.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel5.setText("Estado:");
+
+        jcboxEstado.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        jcboxEstado.setText("INACTIVO");
+        jcboxEstado.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                jcboxEstadoItemStateChanged(evt);
+            }
+        });
 
         jbNuevo.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         jbNuevo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/universidad_equipo85/imagenes/text-plus.png"))); // NOI18N
@@ -84,15 +107,6 @@ public class MateriasIF extends javax.swing.JInternalFrame {
         jbNuevo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jbNuevoActionPerformed(evt);
-            }
-        });
-
-        jbEliminar.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
-        jbEliminar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/universidad_equipo85/imagenes/trash.png"))); // NOI18N
-        jbEliminar.setText("Eliminar");
-        jbEliminar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jbEliminarActionPerformed(evt);
             }
         });
 
@@ -105,27 +119,6 @@ public class MateriasIF extends javax.swing.JInternalFrame {
             }
         });
 
-        jbSalir.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
-        jbSalir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/universidad_equipo85/imagenes/x.png"))); // NOI18N
-        jbSalir.setText("Cerrar");
-        jbSalir.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jbSalirActionPerformed(evt);
-            }
-        });
-
-        jtNombre.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
-
-        jtAnio.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
-
-        jcboxEstado.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        jcboxEstado.setText("INACTIVO");
-        jcboxEstado.addItemListener(new java.awt.event.ItemListener() {
-            public void itemStateChanged(java.awt.event.ItemEvent evt) {
-                jcboxEstadoItemStateChanged(evt);
-            }
-        });
-
         jbLimpiar.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         jbLimpiar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/universidad_equipo85/imagenes/clear-formatting.png"))); // NOI18N
         jbLimpiar.setText("Limpiar");
@@ -135,84 +128,114 @@ public class MateriasIF extends javax.swing.JInternalFrame {
             }
         });
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(10, 10, 10)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jSeparator1)
-                        .addContainerGap())
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+        jbEliminar.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        jbEliminar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/universidad_equipo85/imagenes/trash.png"))); // NOI18N
+        jbEliminar.setText("Eliminar");
+        jbEliminar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbEliminarActionPerformed(evt);
+            }
+        });
+
+        jbSalir.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        jbSalir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/universidad_equipo85/imagenes/x.png"))); // NOI18N
+        jbSalir.setText("Cerrar");
+        jbSalir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbSalirActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jSeparator1))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(247, 247, 247)
+                                .addComponent(jLabel1))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(15, 15, 15)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(jPanel1Layout.createSequentialGroup()
                                         .addComponent(jLabel5)
                                         .addGap(18, 18, 18)
                                         .addComponent(jcboxEstado))
-                                    .addGroup(layout.createSequentialGroup()
+                                    .addGroup(jPanel1Layout.createSequentialGroup()
+                                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                            .addComponent(jLabel3)
+                                            .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.LEADING))
+                                        .addGap(18, 18, 18)
+                                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                                .addComponent(jtId, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addGap(33, 33, 33)
+                                                .addComponent(jbBuscar))
+                                            .addComponent(jtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(jtAnio, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addGroup(jPanel1Layout.createSequentialGroup()
                                         .addComponent(jbNuevo)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                         .addComponent(jbModificar)
-                                        .addGap(13, 13, 13)))
-                                .addComponent(jbLimpiar)
-                                .addGap(16, 16, 16)
-                                .addComponent(jbEliminar)
-                                .addGap(18, 18, 18)
-                                .addComponent(jbSalir))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(jLabel3)
-                                    .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.LEADING))
-                                .addGap(18, 18, 18)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(jtId, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(33, 33, 33)
-                                        .addComponent(jbBuscar))
-                                    .addComponent(jtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jtAnio, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(282, 282, 282)
-                .addComponent(jLabel1)
-                .addGap(0, 0, Short.MAX_VALUE))
+                                        .addGap(13, 13, 13)
+                                        .addComponent(jbLimpiar)
+                                        .addGap(16, 16, 16)
+                                        .addComponent(jbEliminar)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(jbSalir)))))
+                        .addGap(0, 12, Short.MAX_VALUE)))
+                .addContainerGap())
         );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
                 .addComponent(jLabel1)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
                     .addComponent(jtId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jbBuscar))
                 .addGap(28, 28, 28)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
                     .addComponent(jtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(28, 28, 28)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
                     .addComponent(jtAnio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(26, 26, 26)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5)
                     .addComponent(jcboxEstado))
-                .addGap(39, 39, 39)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 38, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jbNuevo)
                     .addComponent(jbModificar)
                     .addComponent(jbSalir)
                     .addComponent(jbLimpiar)
                     .addComponent(jbEliminar))
-                .addGap(0, 26, Short.MAX_VALUE))
+                .addGap(26, 26, 26))
+        );
+
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
@@ -259,6 +282,7 @@ public class MateriasIF extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jbNuevoActionPerformed
 
     private void jbEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbEliminarActionPerformed
+       try{
         int id = Integer.parseInt(jtId.getText());
         int resultado = JOptionPane.showConfirmDialog(this, "¿Esta seguro que quieres eliminar la materia?");
         if (resultado == 0) { 
@@ -272,6 +296,9 @@ public class MateriasIF extends javax.swing.JInternalFrame {
             }
             md.eliminarMateria(id);
         }
+       }catch (NumberFormatException ex){
+           mensaje("Para eliminar una materia el campo debe contener sólo números y no estar vacio.");
+       }
     }//GEN-LAST:event_jbEliminarActionPerformed
 
     private void jbModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbModificarActionPerformed
@@ -284,6 +311,7 @@ public class MateriasIF extends javax.swing.JInternalFrame {
                 materia.setNombre(jtNombre.getText());
                 materia.setAño(Integer.parseInt(jtAnio.getText()));
                 materia.setEstado(jcboxEstado.isSelected());
+                
                 MateriaData materiadata = new MateriaData();
                 materiadata.modificarMateria(materia);
             }
@@ -314,6 +342,7 @@ public class MateriasIF extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JButton jbBuscar;
     private javax.swing.JButton jbEliminar;
