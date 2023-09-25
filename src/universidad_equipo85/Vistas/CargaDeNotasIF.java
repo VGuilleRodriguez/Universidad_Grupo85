@@ -72,7 +72,15 @@ public class CargaDeNotasIF extends javax.swing.JInternalFrame {
             new String [] {
                 "Title 1", "Title 2", "Title 3"
             }
-        ));
+        ) {
+            Class[] types = new Class [] {
+                java.lang.Object.class, java.lang.Object.class, java.lang.Double.class
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+        });
         jScrollPane1.setViewportView(jtTablaNotas);
 
         jbGuardar.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
@@ -170,7 +178,7 @@ public class CargaDeNotasIF extends javax.swing.JInternalFrame {
         int row = jtTablaNotas.getSelectedRow();
         double nota = Double.parseDouble(JOptionPane.showInputDialog(this, "Ingrese la nota para actualizar", "Actualizar nota", JOptionPane.WARNING_MESSAGE));
         if(row !=-1){
-            if(nota > 0 && nota <= 10){
+            if(nota >= 0 && nota <= 10){
             int idmateria = (int)jtTablaNotas.getValueAt(row, 0);
              Alumno alumno = (Alumno) jcbSelectAlum.getSelectedItem();
              InscripcionData inData = new InscripcionData();

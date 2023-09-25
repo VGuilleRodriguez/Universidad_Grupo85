@@ -104,7 +104,7 @@ public class InscripcionData {
             materia.setNombre(rs.getString("materia.nombre"));
             materia.setIdMateria(rs.getInt("materia.idMateria"));
             inscripcion.setMateria(materia);
-            inscripcion.setNota(rs.getInt("nota"));
+            inscripcion.setNota(rs.getDouble("nota"));
             inscripciones.add(inscripcion);
         } ps.close();
         
