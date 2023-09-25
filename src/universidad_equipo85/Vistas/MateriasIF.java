@@ -55,8 +55,13 @@ public class MateriasIF extends javax.swing.JInternalFrame {
         jLabel1.setFont(new java.awt.Font("Arial Black", 1, 18)); // NOI18N
         jLabel1.setText("Materia");
 
+        jLabel2.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel2.setText("ID:");
 
+        jtId.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+
+        jbBuscar.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        jbBuscar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/universidad_equipo85/imagenes/search.png"))); // NOI18N
         jbBuscar.setText("Buscar");
         jbBuscar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -64,19 +69,26 @@ public class MateriasIF extends javax.swing.JInternalFrame {
             }
         });
 
+        jLabel3.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel3.setText("Nombre:");
 
+        jLabel4.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel4.setText("Año:");
 
+        jLabel5.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel5.setText("Estado:");
 
-        jbNuevo.setText("Nueva Materia");
+        jbNuevo.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        jbNuevo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/universidad_equipo85/imagenes/text-plus.png"))); // NOI18N
+        jbNuevo.setText("Nueva");
         jbNuevo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jbNuevoActionPerformed(evt);
             }
         });
 
+        jbEliminar.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        jbEliminar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/universidad_equipo85/imagenes/trash.png"))); // NOI18N
         jbEliminar.setText("Eliminar");
         jbEliminar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -84,6 +96,8 @@ public class MateriasIF extends javax.swing.JInternalFrame {
             }
         });
 
+        jbModificar.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        jbModificar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/universidad_equipo85/imagenes/pencil-minus.png"))); // NOI18N
         jbModificar.setText("Modificar");
         jbModificar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -91,15 +105,29 @@ public class MateriasIF extends javax.swing.JInternalFrame {
             }
         });
 
-        jbSalir.setText("Salir");
+        jbSalir.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        jbSalir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/universidad_equipo85/imagenes/x.png"))); // NOI18N
+        jbSalir.setText("Cerrar");
         jbSalir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jbSalirActionPerformed(evt);
             }
         });
 
-        jcboxEstado.setText("ACTIVO");
+        jtNombre.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
 
+        jtAnio.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+
+        jcboxEstado.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        jcboxEstado.setText("INACTIVO");
+        jcboxEstado.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                jcboxEstadoItemStateChanged(evt);
+            }
+        });
+
+        jbLimpiar.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        jbLimpiar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/universidad_equipo85/imagenes/clear-formatting.png"))); // NOI18N
         jbLimpiar.setText("Limpiar");
         jbLimpiar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -111,10 +139,6 @@ public class MateriasIF extends javax.swing.JInternalFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(158, 158, 158)
-                .addComponent(jLabel1)
-                .addGap(0, 0, Short.MAX_VALUE))
             .addGroup(layout.createSequentialGroup()
                 .addGap(10, 10, 10)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -148,11 +172,15 @@ public class MateriasIF extends javax.swing.JInternalFrame {
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(layout.createSequentialGroup()
                                         .addComponent(jtId, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addGap(33, 33, 33)
                                         .addComponent(jbBuscar))
                                     .addComponent(jtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(jtAnio, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                        .addGap(18, 32, Short.MAX_VALUE))))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(282, 282, 282)
+                .addComponent(jLabel1)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -184,7 +212,7 @@ public class MateriasIF extends javax.swing.JInternalFrame {
                     .addComponent(jbSalir)
                     .addComponent(jbLimpiar)
                     .addComponent(jbEliminar))
-                .addGap(0, 23, Short.MAX_VALUE))
+                .addGap(0, 26, Short.MAX_VALUE))
         );
 
         pack();
@@ -270,6 +298,14 @@ public class MateriasIF extends javax.swing.JInternalFrame {
         jtAnio.setText("");
         jcboxEstado.setSelected(false);
     }//GEN-LAST:event_jbLimpiarActionPerformed
+
+    private void jcboxEstadoItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jcboxEstadoItemStateChanged
+        if(jcboxEstado.isSelected()){
+            jcboxEstado.setText("Activo");
+        }else{
+            jcboxEstado.setText("Inactivo");
+        }
+    }//GEN-LAST:event_jcboxEstadoItemStateChanged
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

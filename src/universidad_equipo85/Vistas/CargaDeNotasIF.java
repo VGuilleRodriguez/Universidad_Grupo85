@@ -59,14 +59,17 @@ public class CargaDeNotasIF extends javax.swing.JInternalFrame {
         jLabel1.setFont(new java.awt.Font("Arial Black", 0, 18)); // NOI18N
         jLabel1.setText("Carga de Notas");
 
+        jLabel2.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel2.setText("Seleccione un Alumno:");
 
+        jcbSelectAlum.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         jcbSelectAlum.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jcbSelectAlumActionPerformed(evt);
             }
         });
 
+        jtTablaNotas.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         jtTablaNotas.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -77,6 +80,8 @@ public class CargaDeNotasIF extends javax.swing.JInternalFrame {
         ));
         jScrollPane1.setViewportView(jtTablaNotas);
 
+        jbGuardar.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        jbGuardar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/universidad_equipo85/imagenes/text-plus.png"))); // NOI18N
         jbGuardar.setText("Agregar");
         jbGuardar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -84,7 +89,9 @@ public class CargaDeNotasIF extends javax.swing.JInternalFrame {
             }
         });
 
-        jbSalir.setText("Salir");
+        jbSalir.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        jbSalir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/universidad_equipo85/imagenes/x.png"))); // NOI18N
+        jbSalir.setText("Cerrar");
         jbSalir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jbSalirActionPerformed(evt);
@@ -102,20 +109,21 @@ public class CargaDeNotasIF extends javax.swing.JInternalFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jScrollPane1))
+                    .addGroup(layout.createSequentialGroup()
                         .addGap(21, 21, 21)
                         .addComponent(jLabel2)
                         .addGap(18, 18, 18)
                         .addComponent(jcbSelectAlum, javax.swing.GroupLayout.PREFERRED_SIZE, 228, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 19, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jbGuardar)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jbSalir)))
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
+            .addGroup(layout.createSequentialGroup()
+                .addGap(58, 58, 58)
+                .addComponent(jbGuardar)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jbSalir)
+                .addGap(60, 60, 60))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -132,7 +140,7 @@ public class CargaDeNotasIF extends javax.swing.JInternalFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jbGuardar)
                     .addComponent(jbSalir))
-                .addContainerGap(24, Short.MAX_VALUE))
+                .addContainerGap(33, Short.MAX_VALUE))
         );
 
         pack();

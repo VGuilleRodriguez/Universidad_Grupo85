@@ -29,7 +29,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
     private void initComponents() {
 
         escritorio = new javax.swing.JDesktopPane();
-        jLabel1 = new javax.swing.JLabel();
+        jlLogo = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         MenuAlumno = new javax.swing.JMenu();
         MenuItemFormularioAlum = new javax.swing.JMenuItem();
@@ -45,9 +45,9 @@ public class MenuPrincipal extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Universidad ULP");
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/universidad_equipo85/imagenes/logo-ulp.png"))); // NOI18N
+        jlLogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/universidad_equipo85/imagenes/logo-ulp.png"))); // NOI18N
 
-        escritorio.setLayer(jLabel1, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        escritorio.setLayer(jlLogo, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         javax.swing.GroupLayout escritorioLayout = new javax.swing.GroupLayout(escritorio);
         escritorio.setLayout(escritorioLayout);
@@ -55,14 +55,14 @@ public class MenuPrincipal extends javax.swing.JFrame {
             escritorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(escritorioLayout.createSequentialGroup()
                 .addGap(214, 214, 214)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 315, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jlLogo, javax.swing.GroupLayout.PREFERRED_SIZE, 315, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(263, Short.MAX_VALUE))
         );
         escritorioLayout.setVerticalGroup(
             escritorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(escritorioLayout.createSequentialGroup()
                 .addGap(170, 170, 170)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jlLogo, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(221, Short.MAX_VALUE))
         );
 
@@ -165,6 +165,8 @@ public class MenuPrincipal extends javax.swing.JFrame {
         aif.setVisible(true);
         escritorio.add(aif);
         escritorio.moveToFront(aif);
+        escritorio.add(jlLogo);
+        
     }//GEN-LAST:event_MenuItemFormularioAlumActionPerformed
 
     private void MenuFormularioMateriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MenuFormularioMateriaActionPerformed
@@ -174,6 +176,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
         mIF.setVisible(true);
         escritorio.add(mIF);
         escritorio.moveToFront(mIF);
+        escritorio.add(jlLogo);
     }//GEN-LAST:event_MenuFormularioMateriaActionPerformed
 
     private void MenuManejodeInscripcionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MenuManejodeInscripcionActionPerformed
@@ -183,6 +186,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
         fdi.setVisible(true);
         escritorio.add(fdi);
         escritorio.moveToFront(fdi);
+        escritorio.add(jlLogo);
     }//GEN-LAST:event_MenuManejodeInscripcionActionPerformed
 
     private void MenuManipulacionNotasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MenuManipulacionNotasActionPerformed
@@ -192,6 +196,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
         cdn.setVisible(true);
         escritorio.add(cdn);
         escritorio.moveToFront(cdn);
+        escritorio.add(jlLogo);
     }//GEN-LAST:event_MenuManipulacionNotasActionPerformed
 
     private void MenuAlumporMateriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MenuAlumporMateriaActionPerformed
@@ -201,6 +206,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
         cam.setVisible(true);
         escritorio.add(cam);
         escritorio.moveToFront(cam);
+        escritorio.add(jlLogo);
     }//GEN-LAST:event_MenuAlumporMateriaActionPerformed
 
     private void MenuSalirMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_MenuSalirMouseClicked
@@ -254,7 +260,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
     private javax.swing.JMenu MenuMateria;
     private javax.swing.JMenu MenuSalir;
     private javax.swing.JDesktopPane escritorio;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JLabel jlLogo;
     // End of variables declaration//GEN-END:variables
 }

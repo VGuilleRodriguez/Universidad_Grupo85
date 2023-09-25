@@ -67,11 +67,13 @@ public class FormularioDeInscripcionIF extends javax.swing.JInternalFrame {
 
         setTitle("Formulario de Inscripcion");
 
-        jLabel1.setFont(new java.awt.Font("Arial Black", 0, 18)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Arial Black", 0, 20)); // NOI18N
         jLabel1.setText("Formulario de Inscripcion");
 
+        jLabel2.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel2.setText("Seleccione un Alumno:");
 
+        jcbSelectAlum.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         jcbSelectAlum.setToolTipText("Seleccione un alumno");
         jcbSelectAlum.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -79,9 +81,10 @@ public class FormularioDeInscripcionIF extends javax.swing.JInternalFrame {
             }
         });
 
-        jLabel3.setFont(new java.awt.Font("Arial Black", 0, 14)); // NOI18N
+        jLabel3.setFont(new java.awt.Font("Arial Black", 0, 18)); // NOI18N
         jLabel3.setText("Listado de Materias");
 
+        jrbMateriasInscriptas.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         jrbMateriasInscriptas.setText("Materias Inscriptas");
         jrbMateriasInscriptas.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -89,6 +92,7 @@ public class FormularioDeInscripcionIF extends javax.swing.JInternalFrame {
             }
         });
 
+        jrbMateriasNoInscriptas.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         jrbMateriasNoInscriptas.setText("Materias NO inscriptas");
         jrbMateriasNoInscriptas.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -96,6 +100,7 @@ public class FormularioDeInscripcionIF extends javax.swing.JInternalFrame {
             }
         });
 
+        jtTablaInscripcion.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         jtTablaInscripcion.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -106,6 +111,8 @@ public class FormularioDeInscripcionIF extends javax.swing.JInternalFrame {
         ));
         jScrollPane1.setViewportView(jtTablaInscripcion);
 
+        jbInscribir.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        jbInscribir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/universidad_equipo85/imagenes/text-plus.png"))); // NOI18N
         jbInscribir.setText("Inscribir");
         jbInscribir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -113,6 +120,8 @@ public class FormularioDeInscripcionIF extends javax.swing.JInternalFrame {
             }
         });
 
+        jbAnularInscripcion.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        jbAnularInscripcion.setIcon(new javax.swing.ImageIcon(getClass().getResource("/universidad_equipo85/imagenes/Cancel.png"))); // NOI18N
         jbAnularInscripcion.setText("Anular Inscripcion");
         jbAnularInscripcion.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -120,7 +129,9 @@ public class FormularioDeInscripcionIF extends javax.swing.JInternalFrame {
             }
         });
 
-        jbSalir.setText("Salir");
+        jbSalir.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        jbSalir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/universidad_equipo85/imagenes/x.png"))); // NOI18N
+        jbSalir.setText("Cerrar");
         jbSalir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jbSalirActionPerformed(evt);
@@ -135,12 +146,12 @@ public class FormularioDeInscripcionIF extends javax.swing.JInternalFrame {
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 496, Short.MAX_VALUE)
+                        .addComponent(jScrollPane1)
                         .addContainerGap())
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(31, 31, 31)
+                        .addGap(22, 22, 22)
                         .addComponent(jbInscribir)
-                        .addGap(80, 80, 80)
+                        .addGap(37, 37, 37)
                         .addComponent(jbAnularInscripcion)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jbSalir)
@@ -151,10 +162,6 @@ public class FormularioDeInscripcionIF extends javax.swing.JInternalFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jrbMateriasNoInscriptas)
                 .addGap(68, 68, 68))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel1)
-                .addGap(126, 126, 126))
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
@@ -163,9 +170,12 @@ public class FormularioDeInscripcionIF extends javax.swing.JInternalFrame {
                         .addGap(18, 18, 18)
                         .addComponent(jcbSelectAlum, javax.swing.GroupLayout.PREFERRED_SIZE, 303, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(170, 170, 170)
+                        .addGap(114, 114, 114)
+                        .addComponent(jLabel1))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(165, 165, 165)
                         .addComponent(jLabel3)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(34, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -189,7 +199,7 @@ public class FormularioDeInscripcionIF extends javax.swing.JInternalFrame {
                     .addComponent(jbInscribir)
                     .addComponent(jbAnularInscripcion)
                     .addComponent(jbSalir))
-                .addContainerGap(15, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
