@@ -86,7 +86,7 @@ public class InscripcionData {
 
     public List<Inscripcion> obtenerInscripcionPorAlumno(int id) {
 
-        List<Inscripcion> inscripciones = new ArrayList();
+        List<Inscripcion> inscripciones = new ArrayList(); 
         try {
             String listar = "SELECT materia.idMateria, materia.nombre, nota "
         + "FROM inscripcion JOIN materia " 

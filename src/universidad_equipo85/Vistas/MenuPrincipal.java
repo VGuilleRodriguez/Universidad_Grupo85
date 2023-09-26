@@ -191,7 +191,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
         escritorio.moveToFront(aif);
         escritorio.add(jlLogo);
         escritorio.add(jpFondo);
-        
+                
     }//GEN-LAST:event_MenuItemFormularioAlumActionPerformed
 
     private void MenuFormularioMateriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MenuFormularioMateriaActionPerformed
