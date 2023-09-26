@@ -245,15 +245,19 @@ public class FormularioDeInscripcionIF extends javax.swing.JInternalFrame {
 
     private void jrbMateriasInscriptasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jrbMateriasInscriptasActionPerformed
         refrescarTabla();
+        jbAnularInscripcion.setEnabled(true);
+        jbInscribir.setEnabled(false);
     }//GEN-LAST:event_jrbMateriasInscriptasActionPerformed
 
     private void jrbMateriasNoInscriptasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jrbMateriasNoInscriptasActionPerformed
         refrescarTabla();
+        jbInscribir.setEnabled(true);
+        jbAnularInscripcion.setEnabled(false);
     }//GEN-LAST:event_jrbMateriasNoInscriptasActionPerformed
 
     private void jbAnularInscripcionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbAnularInscripcionActionPerformed
         int row = jtTablaInscripcion.getSelectedRow();
-        int resultado = JOptionPane.showConfirmDialog(this, "¿Esta seguro que desea anular la inscripcion?");
+        int resultado = JOptionPane.showConfirmDialog(this, "¿Seguro que desea anular la inscripcion?");
         if (resultado == 0) {
             if (row != -1 && jrbMateriasInscriptas.isSelected()) {
                 int idMateria = (int) jtTablaInscripcion.getValueAt(row, 0);
