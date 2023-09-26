@@ -343,6 +343,13 @@ public class AlumnosIF extends javax.swing.JInternalFrame {
                 }
                 jdFecha.setDate(Date.from(alumno.getFechaNacimiento().atStartOfDay().toInstant(ZoneOffset.UTC)));
                 x.eliminarAlumno(dni);
+                jtId.setText("");
+                jtDocumento.setText("");
+                jtApellido.setText("");
+                jtNombre.setText("");
+                jcboxEstado.setSelected(false);
+                jdFecha.setDate(null);
+
             }
         } catch (NullPointerException ex) {
             JOptionPane.showMessageDialog(this, "El DNI es invalido o no existe.");

@@ -5,23 +5,16 @@
  */
 package universidad_equipo85.Vistas;
 
-import java.time.ZoneId;
 import javax.swing.JOptionPane;
-import universidad_equipo85.AccesoADatos.AlumnoData;
 import universidad_equipo85.AccesoADatos.MateriaData;
-import universidad_equipo85.Entidades.Alumno;
 import universidad_equipo85.Entidades.Materia;
 
-/**
- *
- * @author Guillermo Rodriguez
- */
 public class MateriasIF extends javax.swing.JInternalFrame {
 
     private static void mensaje(String mensaje) {
         JOptionPane.showMessageDialog(null, mensaje);
     }
-    
+
     public MateriasIF() {
         initComponents();
         MateriaData md;
@@ -207,7 +200,7 @@ public class MateriasIF extends javax.swing.JInternalFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel2)
                     .addComponent(jtId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jbBuscar))
@@ -290,23 +283,27 @@ public class MateriasIF extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jbNuevoActionPerformed
 
     private void jbEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbEliminarActionPerformed
-       try{
-        int id = Integer.parseInt(jtId.getText());
-        int resultado = JOptionPane.showConfirmDialog(this, "¿Esta seguro que quieres eliminar la materia?");
-        if (resultado == 0) { 
-            MateriaData md = new MateriaData();
-            Materia materia = md.buscarMateria(id);
-            jtNombre.setText(materia.getNombre());
-            String a = jtAnio.getText();
-            int an = Integer.parseInt(a);
-            if (materia.isEstado() == true) {
-                jcboxEstado.setSelected(true);
+        try {
+            int id = Integer.parseInt(jtId.getText());
+            int resultado = JOptionPane.showConfirmDialog(this, "¿Esta seguro que quieres eliminar la materia?");
+            if (resultado == 0) {
+                MateriaData md = new MateriaData();
+                Materia materia = md.buscarMateria(id);
+                jtNombre.setText(materia.getNombre());
+                String a = jtAnio.getText();
+                int an = Integer.parseInt(a);
+                if (materia.isEstado() == true) {
+                    jcboxEstado.setSelected(true);
+                }
+                md.eliminarMateria(id);
+                jtId.setText("");
+                jtNombre.setText("");
+                jtAnio.setText("");
+                jcboxEstado.setSelected(false);
             }
-            md.eliminarMateria(id);
+        } catch (NumberFormatException ex) {
+            mensaje("Para eliminar una materia el campo debe contener sólo números y no estar vacio.");
         }
-       }catch (NumberFormatException ex){
-           mensaje("Para eliminar una materia el campo debe contener sólo números y no estar vacio.");
-       }
     }//GEN-LAST:event_jbEliminarActionPerformed
 
     private void jbModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbModificarActionPerformed
@@ -319,7 +316,7 @@ public class MateriasIF extends javax.swing.JInternalFrame {
                 materia.setNombre(jtNombre.getText());
                 materia.setAño(Integer.parseInt(jtAnio.getText()));
                 materia.setEstado(jcboxEstado.isSelected());
-                
+
                 MateriaData materiadata = new MateriaData();
                 materiadata.modificarMateria(materia);
             }
@@ -336,9 +333,9 @@ public class MateriasIF extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jbLimpiarActionPerformed
 
     private void jcboxEstadoItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jcboxEstadoItemStateChanged
-        if(jcboxEstado.isSelected()){
+        if (jcboxEstado.isSelected()) {
             jcboxEstado.setText("Activo");
-        }else{
+        } else {
             jcboxEstado.setText("Inactivo");
         }
     }//GEN-LAST:event_jcboxEstadoItemStateChanged
