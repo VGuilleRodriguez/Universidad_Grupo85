@@ -113,6 +113,7 @@ public class FormularioDeInscripcionIF extends javax.swing.JInternalFrame {
                 "Title 1", "Title 2", "Title 3"
             }
         ));
+        jtTablaInscripcion.getTableHeader().setReorderingAllowed(false);
         jScrollPane1.setViewportView(jtTablaInscripcion);
 
         jbInscribir.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N

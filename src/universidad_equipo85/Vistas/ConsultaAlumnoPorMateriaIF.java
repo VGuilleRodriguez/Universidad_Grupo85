@@ -71,6 +71,7 @@ public class ConsultaAlumnoPorMateriaIF extends javax.swing.JInternalFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
+        jtTablaAlumno.getTableHeader().setReorderingAllowed(false);
         jScrollPane1.setViewportView(jtTablaAlumno);
 
         jbSalir.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N

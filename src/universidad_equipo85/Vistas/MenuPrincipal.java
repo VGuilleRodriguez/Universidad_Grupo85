@@ -20,7 +20,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
     
     public MenuPrincipal() {
         initComponents();
-        setIconImage(new ImageIcon(getClass().getResource("/universidad_equipo85/imagenes/loguitoULP.png")).getImage());
+        setIconImage(new ImageIcon(getClass().getResource("/universidad_equipo85/imagenes/icon-ulp.png")).getImage());
         this.setLocationRelativeTo(null);        
     }
 
@@ -31,6 +31,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
     private void initComponents() {
 
         escritorio = new javax.swing.JDesktopPane();
+        jpFondo = new javax.swing.JPanel();
         jlLogo = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         MenuAlumno = new javax.swing.JMenu();
@@ -46,29 +47,47 @@ public class MenuPrincipal extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Universidad ULP");
+        setBackground(new java.awt.Color(212, 230, 241));
         setIconImage(getIconImage());
 
+        escritorio.setBackground(new java.awt.Color(212, 230, 241));
         escritorio.setPreferredSize(new java.awt.Dimension(800, 600));
 
-        jlLogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/universidad_equipo85/imagenes/logo-ulp.png"))); // NOI18N
+        jpFondo.setBackground(new java.awt.Color(36, 113, 163));
 
-        escritorio.setLayer(jlLogo, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jlLogo.setBackground(new java.awt.Color(36, 113, 163));
+        jlLogo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jlLogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/universidad_equipo85/imagenes/logo-ulp.png"))); // NOI18N
+        jlLogo.setPreferredSize(new java.awt.Dimension(792, 581));
+
+        javax.swing.GroupLayout jpFondoLayout = new javax.swing.GroupLayout(jpFondo);
+        jpFondo.setLayout(jpFondoLayout);
+        jpFondoLayout.setHorizontalGroup(
+            jpFondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jpFondoLayout.createSequentialGroup()
+                .addGap(171, 171, 171)
+                .addComponent(jlLogo, javax.swing.GroupLayout.PREFERRED_SIZE, 415, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(206, Short.MAX_VALUE))
+        );
+        jpFondoLayout.setVerticalGroup(
+            jpFondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jpFondoLayout.createSequentialGroup()
+                .addGap(148, 148, 148)
+                .addComponent(jlLogo, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(206, Short.MAX_VALUE))
+        );
+
+        escritorio.setLayer(jpFondo, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         javax.swing.GroupLayout escritorioLayout = new javax.swing.GroupLayout(escritorio);
         escritorio.setLayout(escritorioLayout);
         escritorioLayout.setHorizontalGroup(
             escritorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(escritorioLayout.createSequentialGroup()
-                .addGap(214, 214, 214)
-                .addComponent(jlLogo, javax.swing.GroupLayout.PREFERRED_SIZE, 315, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(263, Short.MAX_VALUE))
+            .addComponent(jpFondo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         escritorioLayout.setVerticalGroup(
             escritorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(escritorioLayout.createSequentialGroup()
-                .addGap(170, 170, 170)
-                .addComponent(jlLogo, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(221, Short.MAX_VALUE))
+            .addComponent(jpFondo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         jMenuBar1.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
@@ -171,6 +190,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
         escritorio.add(aif);
         escritorio.moveToFront(aif);
         escritorio.add(jlLogo);
+        escritorio.add(jpFondo);
         
     }//GEN-LAST:event_MenuItemFormularioAlumActionPerformed
 
@@ -182,6 +202,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
         escritorio.add(mIF);
         escritorio.moveToFront(mIF);
         escritorio.add(jlLogo);
+        escritorio.add(jpFondo);
     }//GEN-LAST:event_MenuFormularioMateriaActionPerformed
 
     private void MenuManejodeInscripcionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MenuManejodeInscripcionActionPerformed
@@ -192,6 +213,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
         escritorio.add(fdi);
         escritorio.moveToFront(fdi);
         escritorio.add(jlLogo);
+        escritorio.add(jpFondo);
     }//GEN-LAST:event_MenuManejodeInscripcionActionPerformed
 
     private void MenuManipulacionNotasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MenuManipulacionNotasActionPerformed
@@ -202,6 +224,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
         escritorio.add(cdn);
         escritorio.moveToFront(cdn);
         escritorio.add(jlLogo);
+        escritorio.add(jpFondo);
     }//GEN-LAST:event_MenuManipulacionNotasActionPerformed
 
     private void MenuAlumporMateriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MenuAlumporMateriaActionPerformed
@@ -212,6 +235,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
         escritorio.add(cam);
         escritorio.moveToFront(cam);
         escritorio.add(jlLogo);
+        escritorio.add(jpFondo);
     }//GEN-LAST:event_MenuAlumporMateriaActionPerformed
 
     private void MenuSalirMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_MenuSalirMouseClicked
@@ -267,5 +291,6 @@ public class MenuPrincipal extends javax.swing.JFrame {
     private javax.swing.JDesktopPane escritorio;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JLabel jlLogo;
+    private javax.swing.JPanel jpFondo;
     // End of variables declaration//GEN-END:variables
 }

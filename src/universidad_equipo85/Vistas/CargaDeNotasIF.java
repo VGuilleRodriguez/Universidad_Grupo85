@@ -81,6 +81,7 @@ public class CargaDeNotasIF extends javax.swing.JInternalFrame {
                 return types [columnIndex];
             }
         });
+        jtTablaNotas.getTableHeader().setReorderingAllowed(false);
         jScrollPane1.setViewportView(jtTablaNotas);
 
         jbGuardar.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
