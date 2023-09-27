@@ -22,7 +22,7 @@ public class ConsultaAlumnoPorMateriaIF extends javax.swing.JInternalFrame {
     public ConsultaAlumnoPorMateriaIF() {
         initComponents();
         armarCabecera();
-        cargarComboAlumno();
+        cargarComboMateria();
     }
 
    
@@ -180,7 +180,7 @@ public class ConsultaAlumnoPorMateriaIF extends javax.swing.JInternalFrame {
         jtTablaAlumno.setModel(modelo);
 
     }
- private void cargarComboAlumno() {
+ private void cargarComboMateria() {
         MateriaData materiadata = new MateriaData();
         for (Materia materia : materiadata.listarMateria()) {
             jcbAlumno.addItem(materia);
