@@ -49,6 +49,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
         setTitle("Universidad ULP");
         setBackground(new java.awt.Color(212, 230, 241));
         setIconImage(getIconImage());
+        setPreferredSize(new java.awt.Dimension(900, 700));
 
         escritorio.setBackground(new java.awt.Color(212, 230, 241));
         escritorio.setPreferredSize(new java.awt.Dimension(800, 600));
@@ -181,10 +182,11 @@ public class MenuPrincipal extends javax.swing.JFrame {
         escritorio.repaint();
         AlumnosIF aif = new AlumnosIF();
         aif.setVisible(true);
-        escritorio.add(aif);
+        escritorio.add(aif).setLocation(200,100);
         escritorio.moveToFront(aif);
         escritorio.add(jlLogo);
         escritorio.add(jpFondo);
+        
                 
     }//GEN-LAST:event_MenuItemFormularioAlumActionPerformed
 
@@ -193,10 +195,11 @@ public class MenuPrincipal extends javax.swing.JFrame {
         escritorio.repaint();
         MateriasIF mIF = new MateriasIF();
         mIF.setVisible(true);
-        escritorio.add(mIF);
+        escritorio.add(mIF).setLocation(200,100);
         escritorio.moveToFront(mIF);
         escritorio.add(jlLogo);
         escritorio.add(jpFondo);
+        escritorio.setLocation(200, 100);
     }//GEN-LAST:event_MenuFormularioMateriaActionPerformed
 
     private void MenuManejodeInscripcionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MenuManejodeInscripcionActionPerformed
@@ -204,10 +207,11 @@ public class MenuPrincipal extends javax.swing.JFrame {
         escritorio.repaint();
         FormularioDeInscripcionIF fdi = new FormularioDeInscripcionIF();
         fdi.setVisible(true);
-        escritorio.add(fdi);
+        escritorio.add(fdi).setLocation(200,100);
         escritorio.moveToFront(fdi);
         escritorio.add(jlLogo);
         escritorio.add(jpFondo);
+        escritorio.setLocation(200, 100);
     }//GEN-LAST:event_MenuManejodeInscripcionActionPerformed
 
     private void MenuManipulacionNotasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MenuManipulacionNotasActionPerformed
@@ -215,7 +219,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
         escritorio.repaint();
         CargaDeNotasIF cdn = new CargaDeNotasIF();
         cdn.setVisible(true);
-        escritorio.add(cdn);
+        escritorio.add(cdn).setLocation(200,100);
         escritorio.moveToFront(cdn);
         escritorio.add(jlLogo);
         escritorio.add(jpFondo);
@@ -226,7 +230,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
         escritorio.repaint();
         ConsultaAlumnoPorMateriaIF cam = new ConsultaAlumnoPorMateriaIF();
         cam.setVisible(true);
-        escritorio.add(cam);
+        escritorio.add(cam).setLocation(200,100);
         escritorio.moveToFront(cam);
         escritorio.add(jlLogo);
         escritorio.add(jpFondo);
