@@ -258,14 +258,14 @@ public class MateriasIF extends javax.swing.JInternalFrame {
                 jcboxEstado.setSelected(materia.isEstado());
             }
         } catch (NumberFormatException ex) {
-            JOptionPane.showMessageDialog(this, "ID invalido.");
+            mensaje("ID invalido.");
         }
     }//GEN-LAST:event_jbBuscarActionPerformed
 
     private void jbNuevoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbNuevoActionPerformed
         try {
             if (jtNombre.getText().isEmpty() || jtAnio.getText().isEmpty() || jcboxEstado.isSelected() == false) {
-                JOptionPane.showMessageDialog(null, "No deben haber campos vacios");
+                mensaje("No deben haber campos vacios");
             } else {
                 MateriaData md = new MateriaData();
                 String nombre = jtNombre.getText();
@@ -277,7 +277,7 @@ public class MateriasIF extends javax.swing.JInternalFrame {
                 md.guardarMateria(materia);
             }
         } catch (NumberFormatException ex) {
-            JOptionPane.showMessageDialog(this, "El año debe ser en numeros");
+            mensaje("El año debe ser en numeros");
         }
 
     }//GEN-LAST:event_jbNuevoActionPerformed
@@ -310,7 +310,7 @@ public class MateriasIF extends javax.swing.JInternalFrame {
         Materia materia = new Materia();
         try {
             if (jtNombre.getText().isEmpty() || jtAnio.getText().isEmpty() || jcboxEstado.isSelected() == false) {
-                JOptionPane.showMessageDialog(null, "No deben haber campos vacios");
+                mensaje("No deben haber campos vacios");
             } else {
                 materia.setIdMateria(Integer.parseInt(jtId.getText()));
                 materia.setNombre(jtNombre.getText());
@@ -321,7 +321,7 @@ public class MateriasIF extends javax.swing.JInternalFrame {
                 materiadata.modificarMateria(materia);
             }
         } catch (NumberFormatException ex) {
-            JOptionPane.showMessageDialog(this, "El año debe ser en numeros");
+            mensaje("El año debe ser en numeros");
         }
     }//GEN-LAST:event_jbModificarActionPerformed
 

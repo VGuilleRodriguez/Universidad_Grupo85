@@ -32,15 +32,15 @@ public class AlumnoData {
         String sql = "INSERT INTO alumno (dni, apellido, nombre, fechaNacimiento, estado)"
                 + "VALUES(?,?,?,?,?)";
         try {
-            PreparedStatement ps = con.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
+            PreparedStatement ps = con.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);//Carga a la base de datos
             ps.setInt(1, alumno.getDni());
             ps.setString(2, alumno.getApellido());
             ps.setString(3, alumno.getNombre());
             ps.setDate(4, Date.valueOf(alumno.getFechaNacimiento()));
             ps.setBoolean(5, alumno.isEstado());
-            ps.executeUpdate();
+            ps.executeUpdate();                         //ejecuta la sentencia 
             ResultSet rs = ps.getGeneratedKeys();
-            if (rs.next()) {
+            if (rs.next()) {                            //si se pudo agregar, si hay un elemento que retorne 
                 alumno.setIdAlumno(rs.getInt(1));
                 JOptionPane.showMessageDialog(null, "Alumno guardado con exito!");
             }

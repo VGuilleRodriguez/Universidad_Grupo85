@@ -18,7 +18,9 @@ public class CargaDeNotasIF extends javax.swing.JInternalFrame {
             return false;
         }
     };
-    
+    private static void mensaje(String mensaje) {
+        JOptionPane.showMessageDialog(null, mensaje);
+    }
     public CargaDeNotasIF() {
         initComponents();
         armarCabecera();
@@ -182,13 +184,13 @@ public class CargaDeNotasIF extends javax.swing.JInternalFrame {
              inData.actualizarNota(alumno.getIdAlumno(), idmateria, nota);
              refrescarTabla();
             } else {
-            JOptionPane.showMessageDialog(null, "Nota invalida");
+            mensaje("Nota invalida");
             }
         }else{
-            JOptionPane.showMessageDialog(null, "Debe seleccionar una materia");
+            mensaje("Debe seleccionar una materia");
         }     
      }catch (NumberFormatException ex){
-         JOptionPane.showMessageDialog(this, "ERROR! La nota debe ser un numero");
+         mensaje("ERROR! La nota debe ser un numero");
      } catch (NullPointerException ex){
         
      }         

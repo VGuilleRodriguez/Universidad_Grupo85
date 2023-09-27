@@ -32,7 +32,7 @@ public class MateriaData {
     String sql = "INSERT INTO materia (nombre, año, estado) "
                 + "VALUES(?,?,?)";
         try {
-            PreparedStatement ps = con.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
+            PreparedStatement ps = con.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);//Carga a la base de datos 
             ps.setString(1, materia.getNombre());
             ps.setInt(2, materia.getAño());
             ps.setBoolean(3, materia.isEstado());

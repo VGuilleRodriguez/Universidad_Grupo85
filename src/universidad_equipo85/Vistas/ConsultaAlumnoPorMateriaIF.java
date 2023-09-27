@@ -2,11 +2,8 @@
 package universidad_equipo85.Vistas;
 
 import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
 import javax.swing.table.DefaultTableModel;
-import universidad_equipo85.AccesoADatos.AlumnoData;
 import universidad_equipo85.AccesoADatos.InscripcionData;
 import universidad_equipo85.AccesoADatos.MateriaData;
 import universidad_equipo85.Entidades.Alumno;
@@ -20,9 +17,8 @@ public class ConsultaAlumnoPorMateriaIF extends javax.swing.JInternalFrame {
             return false;
         }
    };
-  
-   
-    
+
+     
     public ConsultaAlumnoPorMateriaIF() {
         initComponents();
         armarCabecera();
