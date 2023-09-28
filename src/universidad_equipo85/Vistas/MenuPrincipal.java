@@ -21,7 +21,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
     
     public MenuPrincipal() {
         initComponents();
-        setIconImage(new ImageIcon(getClass().getResource("/universidad_equipo85/imagenes/icon-ulp.png")).getImage());
+        setIconImage(new ImageIcon(getClass().getResource("/universidad_equipo85/imagenes/icon-ulp.png")).getImage()); //Reemplaza logo de java por el logoULP.
         this.setLocationRelativeTo(null);        
     }
 
@@ -53,14 +53,15 @@ public class MenuPrincipal extends javax.swing.JFrame {
         setPreferredSize(new java.awt.Dimension(900, 700));
 
         escritorio.setBackground(new java.awt.Color(212, 230, 241));
-        escritorio.setPreferredSize(new java.awt.Dimension(800, 600));
+        escritorio.setPreferredSize(new java.awt.Dimension(900, 700));
 
         jpFondo.setBackground(new java.awt.Color(36, 113, 163));
+        jpFondo.setPreferredSize(new java.awt.Dimension(900, 700));
 
         jlLogo.setBackground(new java.awt.Color(36, 113, 163));
         jlLogo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jlLogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/universidad_equipo85/imagenes/logo-ulp.png"))); // NOI18N
-        jlLogo.setPreferredSize(new java.awt.Dimension(792, 581));
+        jlLogo.setPreferredSize(new java.awt.Dimension(900, 700));
 
         javax.swing.GroupLayout jpFondoLayout = new javax.swing.GroupLayout(jpFondo);
         jpFondo.setLayout(jpFondoLayout);
@@ -79,11 +80,11 @@ public class MenuPrincipal extends javax.swing.JFrame {
         escritorio.setLayout(escritorioLayout);
         escritorioLayout.setHorizontalGroup(
             escritorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jpFondo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jpFondo, javax.swing.GroupLayout.DEFAULT_SIZE, 792, Short.MAX_VALUE)
         );
         escritorioLayout.setVerticalGroup(
             escritorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jpFondo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jpFondo, javax.swing.GroupLayout.DEFAULT_SIZE, 558, Short.MAX_VALUE)
         );
 
         jMenuBar1.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
@@ -183,19 +184,14 @@ public class MenuPrincipal extends javax.swing.JFrame {
         escritorio.repaint();
         AlumnosIF aif = new AlumnosIF();
         aif.setVisible(true);
-        escritorio.add(aif).setLocation(200,100);
+        escritorio.add(aif);        
         escritorio.moveToFront(aif);
-        escritorio.add(jlLogo);
+        escritorio.add(jlLogo); 
         escritorio.add(jpFondo);
-        //comentar todo esto de arriba y probar
-        
-        
-//       AlumnosIF m = new AlumnosIF();
-//       escritorio.add(aif);
-//       Dimension desktopSize = escritorio.getSize();
-//       Dimension FrameSize = m.getSize();
-//       m.setLocation((desktopSize.width - FrameSize.width)/2, (desktopSize.height- FrameSize.height)/2);
-//       m.show();
+        Dimension desktopSize = escritorio.getSize();
+        Dimension FrameSize = aif.getSize();
+        aif.setLocation((desktopSize.width - FrameSize.width)/2, (desktopSize.height- FrameSize.height)/2);
+        aif.show();
                    
     }//GEN-LAST:event_MenuItemFormularioAlumActionPerformed
 
@@ -204,11 +200,14 @@ public class MenuPrincipal extends javax.swing.JFrame {
         escritorio.repaint();
         MateriasIF mIF = new MateriasIF();
         mIF.setVisible(true);
-        escritorio.add(mIF).setLocation(200,100);
+        escritorio.add(mIF); 
         escritorio.moveToFront(mIF);
         escritorio.add(jlLogo);
         escritorio.add(jpFondo);
         escritorio.setLocation(200, 100);
+        Dimension desktopSize = escritorio.getSize();
+        Dimension FrameSize = mIF.getSize();
+        mIF.setLocation((desktopSize.width - FrameSize.width)/2, (desktopSize.height- FrameSize.height)/2);
     }//GEN-LAST:event_MenuFormularioMateriaActionPerformed
 
     private void MenuManejodeInscripcionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MenuManejodeInscripcionActionPerformed
@@ -216,11 +215,14 @@ public class MenuPrincipal extends javax.swing.JFrame {
         escritorio.repaint();
         FormularioDeInscripcionIF fdi = new FormularioDeInscripcionIF();
         fdi.setVisible(true);
-        escritorio.add(fdi).setLocation(200,100);
+        escritorio.add(fdi); 
         escritorio.moveToFront(fdi);
         escritorio.add(jlLogo);
         escritorio.add(jpFondo);
         escritorio.setLocation(200, 100);
+        Dimension desktopSize = escritorio.getSize();
+        Dimension FrameSize = fdi.getSize();
+        fdi.setLocation((desktopSize.width - FrameSize.width)/2, (desktopSize.height- FrameSize.height)/2);
     }//GEN-LAST:event_MenuManejodeInscripcionActionPerformed
 
     private void MenuManipulacionNotasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MenuManipulacionNotasActionPerformed
@@ -228,10 +230,13 @@ public class MenuPrincipal extends javax.swing.JFrame {
         escritorio.repaint();
         CargaDeNotasIF cdn = new CargaDeNotasIF();
         cdn.setVisible(true);
-        escritorio.add(cdn).setLocation(200,100);
+        escritorio.add(cdn); 
         escritorio.moveToFront(cdn);
         escritorio.add(jlLogo);
         escritorio.add(jpFondo);
+        Dimension desktopSize = escritorio.getSize();
+        Dimension FrameSize = cdn.getSize();
+        cdn.setLocation((desktopSize.width - FrameSize.width)/2, (desktopSize.height- FrameSize.height)/2);
     }//GEN-LAST:event_MenuManipulacionNotasActionPerformed
 
     private void MenuAlumporMateriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MenuAlumporMateriaActionPerformed
@@ -239,10 +244,13 @@ public class MenuPrincipal extends javax.swing.JFrame {
         escritorio.repaint();
         ConsultaAlumnoPorMateriaIF cam = new ConsultaAlumnoPorMateriaIF();
         cam.setVisible(true);
-        escritorio.add(cam).setLocation(200,100);
+        escritorio.add(cam); 
         escritorio.moveToFront(cam);
         escritorio.add(jlLogo);
         escritorio.add(jpFondo);
+        Dimension desktopSize = escritorio.getSize();
+        Dimension FrameSize = cam.getSize();
+        cam.setLocation((desktopSize.width - FrameSize.width)/2, (desktopSize.height- FrameSize.height)/2);
     }//GEN-LAST:event_MenuAlumporMateriaActionPerformed
 
     private void MenuSalirMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_MenuSalirMouseClicked

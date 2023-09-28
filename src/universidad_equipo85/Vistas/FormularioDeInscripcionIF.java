@@ -297,8 +297,9 @@ public class FormularioDeInscripcionIF extends javax.swing.JInternalFrame {
     }
 
     private void limpiarFilas() {
-        for (int i = modelo.getRowCount() - 1; i >= 0; i--) {
-            modelo.removeRow(i);
+        for (int i = modelo.getRowCount() - 1; i >= 0; i--) {   //Comienza desde la ultima fila y se mueve hacia arriba hasta la primera fila
+            modelo.removeRow(i);                                //Devuelve el n° de fila de la tabla modelo, se ejecuta mientras i>=0
+                                                                //En cada iteracion se elimina la fila en la posicion i del mod tabla
         }
     }
 
@@ -309,7 +310,7 @@ public class FormularioDeInscripcionIF extends javax.swing.JInternalFrame {
         }
     }
 
-    private void grupoBotones() {
+    private void grupoBotones() { //Agrupa dos botones
         buttonGroup1.add(jrbMateriasInscriptas);
         buttonGroup1.add(jrbMateriasNoInscriptas);
     }
@@ -319,7 +320,7 @@ public class FormularioDeInscripcionIF extends javax.swing.JInternalFrame {
 
         InscripcionData inscripciondata = new InscripcionData();
 
-        Alumno alumno = (Alumno) jcbSelectAlum.getSelectedItem();
+        Alumno alumno = (Alumno) jcbSelectAlum.getSelectedItem(); //casteo (Alumno)es para convertir el elemento seleccionado en un object "Alumno"
 
         Set<Materia> materias = new HashSet<>();
         if (jrbMateriasInscriptas.isSelected()) {
