@@ -5,6 +5,7 @@
  */
 package universidad_equipo85.Vistas;
 
+import java.awt.Dimension;
 import java.util.TreeSet;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
@@ -186,8 +187,16 @@ public class MenuPrincipal extends javax.swing.JFrame {
         escritorio.moveToFront(aif);
         escritorio.add(jlLogo);
         escritorio.add(jpFondo);
+        //comentar todo esto de arriba y probar
         
-                
+        
+//       AlumnosIF m = new AlumnosIF();
+//       escritorio.add(aif);
+//       Dimension desktopSize = escritorio.getSize();
+//       Dimension FrameSize = m.getSize();
+//       m.setLocation((desktopSize.width - FrameSize.width)/2, (desktopSize.height- FrameSize.height)/2);
+//       m.show();
+                   
     }//GEN-LAST:event_MenuItemFormularioAlumActionPerformed
 
     private void MenuFormularioMateriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MenuFormularioMateriaActionPerformed
