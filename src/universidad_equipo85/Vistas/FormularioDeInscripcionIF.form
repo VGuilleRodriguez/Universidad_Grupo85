@@ -237,6 +237,7 @@
               <Image iconType="3" name="/universidad_equipo85/imagenes/user-plus.png"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Inscribir"/>
+            <Property name="enabled" type="boolean" value="false"/>
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jbInscribirActionPerformed"/>
@@ -251,6 +252,7 @@
               <Image iconType="3" name="/universidad_equipo85/imagenes/user-cancel.png"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Anular Inscripcion"/>
+            <Property name="enabled" type="boolean" value="false"/>
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jbAnularInscripcionActionPerformed"/>

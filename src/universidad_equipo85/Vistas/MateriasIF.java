@@ -36,7 +36,6 @@ public class MateriasIF extends javax.swing.JInternalFrame {
         jtId = new javax.swing.JTextField();
         jbBuscar = new javax.swing.JButton();
         jtNombre = new javax.swing.JTextField();
-        jtAnio = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
@@ -48,6 +47,7 @@ public class MateriasIF extends javax.swing.JInternalFrame {
         jbEliminar = new javax.swing.JButton();
         jbSalir = new javax.swing.JButton();
         jSeparator2 = new javax.swing.JSeparator();
+        jSpinner1 = new javax.swing.JSpinner();
 
         setBackground(new java.awt.Color(0, 204, 204));
         setTitle("Materias");
@@ -59,6 +59,11 @@ public class MateriasIF extends javax.swing.JInternalFrame {
 
         jtId.setBackground(new java.awt.Color(127, 179, 213));
         jtId.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        jtId.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jtIdKeyTyped(evt);
+            }
+        });
 
         jbBuscar.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         jbBuscar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/universidad_equipo85/imagenes/search.png"))); // NOI18N
@@ -71,9 +76,11 @@ public class MateriasIF extends javax.swing.JInternalFrame {
 
         jtNombre.setBackground(new java.awt.Color(127, 179, 213));
         jtNombre.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
-
-        jtAnio.setBackground(new java.awt.Color(127, 179, 213));
-        jtAnio.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        jtNombre.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jtNombreKeyTyped(evt);
+            }
+        });
 
         jLabel4.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel4.setText("Año:");
@@ -140,6 +147,8 @@ public class MateriasIF extends javax.swing.JInternalFrame {
             }
         });
 
+        jSpinner1.setModel(new javax.swing.SpinnerNumberModel(1, 1, 6, 1));
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -165,7 +174,7 @@ public class MateriasIF extends javax.swing.JInternalFrame {
                                         .addGap(18, 18, 18)
                                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                             .addComponent(jtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(jtAnio, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                            .addComponent(jSpinner1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                     .addGroup(jPanel1Layout.createSequentialGroup()
                                         .addComponent(jbNuevo)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -210,10 +219,10 @@ public class MateriasIF extends javax.swing.JInternalFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
                     .addComponent(jtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(28, 28, 28)
+                .addGap(27, 27, 27)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
-                    .addComponent(jtAnio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jSpinner1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(26, 26, 26)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5)
@@ -254,7 +263,7 @@ public class MateriasIF extends javax.swing.JInternalFrame {
             Materia materia = materiadata.buscarMateria(Integer.parseInt(jtId.getText()));
             if (materia != null) {
                 jtNombre.setText(materia.getNombre());
-                jtAnio.setText(materia.getAño() + "");
+                jSpinner1.setValue(materia.getAño());
                 jcboxEstado.setSelected(materia.isEstado());
             }
         } catch (NumberFormatException ex) {
@@ -264,13 +273,12 @@ public class MateriasIF extends javax.swing.JInternalFrame {
 
     private void jbNuevoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbNuevoActionPerformed
         try {
-            if (jtNombre.getText().isEmpty() || jtAnio.getText().isEmpty() || jcboxEstado.isSelected() == false) {
+            if (jtNombre.getText().isEmpty() || jcboxEstado.isSelected() == false) {
                 mensaje("No deben haber campos vacios");
             } else {
                 MateriaData md = new MateriaData();
                 String nombre = jtNombre.getText();
-                String a = jtAnio.getText();
-                int año = Integer.parseInt(a);
+                int año = (int)jSpinner1.getValue();
                 boolean estado = jcboxEstado.isSelected();
 
                 Materia materia = new Materia(nombre, año, estado);
@@ -290,15 +298,14 @@ public class MateriasIF extends javax.swing.JInternalFrame {
                 MateriaData md = new MateriaData();
                 Materia materia = md.buscarMateria(id);
                 jtNombre.setText(materia.getNombre());
-                String a = jtAnio.getText();
-                int an = Integer.parseInt(a);
+                int año = (int)jSpinner1.getValue();
                 if (materia.isEstado() == true) {
                     jcboxEstado.setSelected(true);
                 }
                 md.eliminarMateria(id);
                 jtId.setText("");
                 jtNombre.setText("");
-                jtAnio.setText("");
+                jSpinner1.setValue(1);
                 jcboxEstado.setSelected(false);
             }
         } catch (NumberFormatException ex) {
@@ -309,12 +316,12 @@ public class MateriasIF extends javax.swing.JInternalFrame {
     private void jbModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbModificarActionPerformed
         Materia materia = new Materia();
         try {
-            if (jtNombre.getText().isEmpty() || jtAnio.getText().isEmpty() || jcboxEstado.isSelected() == false) {
+            if (jtNombre.getText().isEmpty() || jcboxEstado.isSelected() == false) {
                 mensaje("No deben haber campos vacios");
             } else {
                 materia.setIdMateria(Integer.parseInt(jtId.getText()));
                 materia.setNombre(jtNombre.getText());
-                materia.setAño(Integer.parseInt(jtAnio.getText()));
+                materia.setAño((int)jSpinner1.getValue());
                 materia.setEstado(jcboxEstado.isSelected());
 
                 MateriaData materiadata = new MateriaData();
@@ -328,7 +335,7 @@ public class MateriasIF extends javax.swing.JInternalFrame {
     private void jbLimpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbLimpiarActionPerformed
         jtId.setText("");
         jtNombre.setText("");
-        jtAnio.setText("");
+        jSpinner1.setValue(1);
         jcboxEstado.setSelected(false);
     }//GEN-LAST:event_jbLimpiarActionPerformed
 
@@ -340,6 +347,19 @@ public class MateriasIF extends javax.swing.JInternalFrame {
         }
     }//GEN-LAST:event_jcboxEstadoItemStateChanged
 
+    private void jtNombreKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtNombreKeyTyped
+        if(!Character.isLetter(evt.getKeyChar())){
+            evt.consume();
+        }
+    }//GEN-LAST:event_jtNombreKeyTyped
+
+    private void jtIdKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtIdKeyTyped
+        char caracter=evt.getKeyChar();
+        if((caracter<'0')||(caracter>'9')){
+            evt.consume();
+        }
+    }//GEN-LAST:event_jtIdKeyTyped
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
@@ -350,6 +370,7 @@ public class MateriasIF extends javax.swing.JInternalFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
+    private javax.swing.JSpinner jSpinner1;
     private javax.swing.JButton jbBuscar;
     private javax.swing.JButton jbEliminar;
     private javax.swing.JButton jbLimpiar;
@@ -357,7 +378,6 @@ public class MateriasIF extends javax.swing.JInternalFrame {
     private javax.swing.JButton jbNuevo;
     private javax.swing.JButton jbSalir;
     private javax.swing.JCheckBox jcboxEstado;
-    private javax.swing.JTextField jtAnio;
     private javax.swing.JTextField jtId;
     private javax.swing.JTextField jtNombre;
     // End of variables declaration//GEN-END:variables

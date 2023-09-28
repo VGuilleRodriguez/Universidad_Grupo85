@@ -51,6 +51,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
         setBackground(new java.awt.Color(212, 230, 241));
         setIconImage(getIconImage());
         setPreferredSize(new java.awt.Dimension(900, 700));
+        setResizable(false);
 
         escritorio.setBackground(new java.awt.Color(212, 230, 241));
         escritorio.setPreferredSize(new java.awt.Dimension(900, 700));

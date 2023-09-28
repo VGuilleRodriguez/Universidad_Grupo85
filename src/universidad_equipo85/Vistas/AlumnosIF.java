@@ -77,12 +77,27 @@ public class AlumnosIF extends javax.swing.JInternalFrame {
 
         jtDocumento.setBackground(new java.awt.Color(127, 179, 213));
         jtDocumento.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        jtDocumento.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jtDocumentoKeyTyped(evt);
+            }
+        });
 
         jtApellido.setBackground(new java.awt.Color(127, 179, 213));
         jtApellido.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        jtApellido.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jtApellidoKeyTyped(evt);
+            }
+        });
 
         jtNombre.setBackground(new java.awt.Color(127, 179, 213));
         jtNombre.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        jtNombre.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jtNombreKeyTyped(evt);
+            }
+        });
 
         jdFecha.setBackground(new java.awt.Color(127, 179, 213));
         jdFecha.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
@@ -388,6 +403,25 @@ public class AlumnosIF extends javax.swing.JInternalFrame {
         }
 
     }//GEN-LAST:event_jcboxEstadoItemStateChanged
+
+    private void jtApellidoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtApellidoKeyTyped
+        if(!Character.isLetter(evt.getKeyChar())){
+            evt.consume();
+        }
+    }//GEN-LAST:event_jtApellidoKeyTyped
+
+    private void jtNombreKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtNombreKeyTyped
+        if(!Character.isLetter(evt.getKeyChar())){
+            evt.consume();
+        }
+    }//GEN-LAST:event_jtNombreKeyTyped
+
+    private void jtDocumentoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtDocumentoKeyTyped
+         char caracter=evt.getKeyChar();
+        if((caracter<'0')||(caracter>'9')){
+            evt.consume();
+        }
+    }//GEN-LAST:event_jtDocumentoKeyTyped
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

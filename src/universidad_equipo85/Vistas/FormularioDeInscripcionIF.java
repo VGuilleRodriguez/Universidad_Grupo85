@@ -23,7 +23,7 @@ import universidad_equipo85.Entidades.Materia;
 public class FormularioDeInscripcionIF extends javax.swing.JInternalFrame {
 
     private InscripcionData inData = new InscripcionData();
-    private AlumnoData alumData;
+    //private AlumnoData alumData;
 
     private static void mensaje(String mensaje) {
         JOptionPane.showMessageDialog(null, mensaje);
@@ -115,6 +115,7 @@ public class FormularioDeInscripcionIF extends javax.swing.JInternalFrame {
         jbInscribir.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         jbInscribir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/universidad_equipo85/imagenes/user-plus.png"))); // NOI18N
         jbInscribir.setText("Inscribir");
+        jbInscribir.setEnabled(false);
         jbInscribir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jbInscribirActionPerformed(evt);
@@ -124,6 +125,7 @@ public class FormularioDeInscripcionIF extends javax.swing.JInternalFrame {
         jbAnularInscripcion.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         jbAnularInscripcion.setIcon(new javax.swing.ImageIcon(getClass().getResource("/universidad_equipo85/imagenes/user-cancel.png"))); // NOI18N
         jbAnularInscripcion.setText("Anular Inscripcion");
+        jbAnularInscripcion.setEnabled(false);
         jbAnularInscripcion.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jbAnularInscripcionActionPerformed(evt);
@@ -305,8 +307,8 @@ public class FormularioDeInscripcionIF extends javax.swing.JInternalFrame {
 
     private void cargarComboAlumno() {
         AlumnoData alumnodata = new AlumnoData();
-        for (Alumno alumno : alumnodata.listarAlumnos()) {
-            jcbSelectAlum.addItem(alumno);
+        for (Alumno alumno : alumnodata.listarAlumnos()) { //En cada iteración del bucle, se obtiene un objeto Alumno 
+            jcbSelectAlum.addItem(alumno);                 //y se agrega al comboBox 
         }
     }
 
